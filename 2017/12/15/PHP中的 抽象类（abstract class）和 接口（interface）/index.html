@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Shieh&#39;s Blog">
 <meta property="og:description" content="抽象类abstract class 抽象类是指在class前加了abstract关键字且存在抽象方法（在类方法function关键字前加了abstract关键字）的类。 抽象类不能被直接实例化。抽象类中只定义（或部分实现）子类需要的方法。子类可以通过继承抽象类并通过实现抽象类中的所有抽象方法，使抽象类具体化。 如果子类需要实例化，前提是它实现了抽象类中的所有抽象方法。如果子类没有全部实现抽象类中的">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2017-12-15T10:01:56.995Z">
+<meta property="og:updated_time" content="2017-12-15T10:03:07.633Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP中的 抽象类（abstract class）和 接口（interface）">
 <meta name="twitter:description" content="抽象类abstract class 抽象类是指在class前加了abstract关键字且存在抽象方法（在类方法function关键字前加了abstract关键字）的类。 抽象类不能被直接实例化。抽象类中只定义（或部分实现）子类需要的方法。子类可以通过继承抽象类并通过实现抽象类中的所有抽象方法，使抽象类具体化。 如果子类需要实例化，前提是它实现了抽象类中的所有抽象方法。如果子类没有全部实现抽象类中的">
@@ -371,7 +371,7 @@
 <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">A</span>  </span></span><br><span class="line"><span class="class">     </span>&#123;  </span><br><span class="line">         <span class="comment">/** 抽象类中可以定义变量 */</span>  </span><br><span class="line">         <span class="keyword">protected</span> $value1 = <span class="number">0</span>;  </span><br><span class="line">         <span class="keyword">private</span> $value2 = <span class="number">1</span>;  </span><br><span class="line">         <span class="keyword">public</span> $value3 = <span class="number">2</span>;  </span><br><span class="line">         <span class="comment">/** 也可以定义非抽象方法 */</span>  </span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">my_print</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">         </span>&#123;  </span><br><span class="line">             <span class="keyword">echo</span> <span class="string">"hello,world/n"</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="comment">/** </span></span><br><span class="line"><span class="comment">          * 大多数情况下，抽象类至少含有一个抽象方法。抽象方法用abstract关键字声明，其中不能有具体内容。 </span></span><br><span class="line"><span class="comment">          * 可以像声明普通类方法那样声明抽象方法，但是要以分号而不是方法体结束。也就是说抽象方法在抽象类中不能被实现，也就是没有函数体“&#123;some codes&#125;”。 </span></span><br><span class="line"><span class="comment">          */</span>  </span><br><span class="line">         <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">abstract_func1</span><span class="params">()</span></span>;  </span><br><span class="line">         <span class="keyword">abstract</span> <span class="keyword">protected</span> <span class="function"><span class="keyword">function</span> <span class="title">abstract_func2</span><span class="params">()</span></span>;  </span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span>  </span></span><br><span class="line"><span class="class">     </span>&#123;  </span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">abstract_func1</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">         </span>&#123;  </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"implement the abstract_func1 in class A/n"</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="comment">/** 这么写在zend studio 8中会报错*/</span>  </span><br><span class="line">         <span class="comment">//abstract protected function abstract_func2();  </span></span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span>  </span></span><br><span class="line"><span class="class">     </span>&#123;  </span><br><span class="line">         <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">abstract_func2</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">         </span>&#123;  </span><br><span class="line">            <span class="keyword">echo</span> <span class="string">"implement the abstract_func2 in class A/n"</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line">     &#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果像下面这样创建了一个继承自A的子类B，但是不实现抽象方法abstract_func()：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;&#125;; </span><br><span class="line">``` </span><br><span class="line">  那么程序将出现以下错误：</span><br><span class="line">```php</span><br><span class="line">Fatal error: Class B contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (A::abstract_func)</span><br></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">Class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span></span>&#123;&#125;; </span><br><span class="line">``` </span><br><span class="line">那么程序将出现以下错误：</span><br><span class="line">```php</span><br><span class="line">Fatal error: Class B contains 1 abstract method and must therefore be declared abstract or implement the remaining methods (A::abstract_func)</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>如果B实现了抽象方法abstract_func()，那么B中abstract_func()方法的访问控制不能比A中abstract_func()的访问控制更严格，也就是说：<br>(1)如果A中abstract_func()声明为public，那么B中abstract_func()的声明只能是public，不能是protected或private<br>(2)如果A中abstract_func()声明为protected，那么B中abstract_func()的声明可以是public或protected，但不能是private<br>(3)如果A中abstract_func()声明为private，嘿嘿，不能定义为private哦！（Fatal error: Abstract function A::abstract_func() cannot be declared private）</p>
 <h2 id="接口interface"><a href="#接口interface" class="headerlink" title="接口interface"></a>接口interface</h2></li>
@@ -507,6 +507,10 @@
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2018/01/24/远程及时修改微信菜单/" rel="prev" title="远程即时修改微信菜单">
+                远程即时修改微信菜单 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -594,7 +598,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -698,7 +702,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2017</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
