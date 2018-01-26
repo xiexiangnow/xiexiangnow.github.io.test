@@ -238,7 +238,7 @@
             
               <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
             
-            Search
+            搜索
           </a>
         </li>
       
@@ -248,22 +248,26 @@
   
     <div class="site-search">
       
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
     <span class="popup-btn-close">
       <i class="fa fa-times-circle"></i>
     </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off"
-             placeholder="Searching..." spellcheck="false"
-             type="text" id="local-search-input">
-    </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+
 
 
 
@@ -325,7 +329,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-25T09:44:38+08:00">
                 2018-01-25
@@ -346,7 +350,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -399,7 +403,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/25/hexo搭建的博客如何给文章分类（NEXT主题）/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -478,7 +482,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-01-24T20:08:14+08:00">
                 2018-01-24
@@ -499,7 +503,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -551,7 +555,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2018/01/24/远程及时修改微信菜单/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -630,7 +634,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-12-15T17:42:33+08:00">
                 2017-12-15
@@ -651,7 +655,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -703,7 +707,7 @@
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/12/15/PHP中的 抽象类（abstract class）和 接口（interface）/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -782,7 +786,7 @@
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-24T15:28:29+08:00">
                 2017-11-24
@@ -803,7 +807,7 @@
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -856,7 +860,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/24/http中的referer/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -935,7 +939,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T14:43:33+08:00">
                 2017-11-23
@@ -956,7 +960,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1004,7 +1008,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/23/PHP编程/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1083,7 +1087,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-23T00:42:33+08:00">
                 2017-11-23
@@ -1104,7 +1108,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
                 <i class="fa fa-folder-o"></i>
               </span>
               
-                <span class="post-meta-item-text">In</span>
+                <span class="post-meta-item-text">in</span>
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
@@ -1153,7 +1157,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/23/《维和步兵营》观后感/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1232,7 +1236,7 @@ Http协议头中的Referer主要用来让服务器判断来源页面, 即用户�
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">Posted on</span>
+                <span class="post-meta-item-text">Veröffentlicht am</span>
               
               <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-22T17:43:54+08:00">
                 2017-11-22
@@ -1283,7 +1287,7 @@ More in
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/11/22/hello-world/#more" rel="contents">
-              Read more &raquo;
+              查看全文 &raquo;
             </a>
           </div>
           <!--/noindex-->
@@ -1371,7 +1375,7 @@ More in
                 <a href="/archives">
               
                   <span class="site-state-item-count">7</span>
-                  <span class="site-state-item-name">posts</span>
+                  <span class="site-state-item-name">文章</span>
                 </a>
               </div>
             
@@ -1382,7 +1386,7 @@ More in
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
                   <span class="site-state-item-count">3</span>
-                  <span class="site-state-item-name">categories</span>
+                  <span class="site-state-item-name">Kategorien</span>
                 </a>
               </div>
             
@@ -1393,7 +1397,7 @@ More in
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
                   <span class="site-state-item-count">4</span>
-                  <span class="site-state-item-name">tags</span>
+                  <span class="site-state-item-name">Tags</span>
                 </a>
               </div>
             
@@ -1477,7 +1481,7 @@ More in
 </div>
 
 
-  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
 
 
 
@@ -1643,7 +1647,7 @@ More in
     var isfetched = false;
     var isXml = true;
     // Search DB path;
-    var search_path = "";
+    var search_path = "search.xml";
     if (search_path.length === 0) {
       search_path = "search.xml";
     } else if (/json$/i.test(search_path)) {
@@ -1956,6 +1960,19 @@ More in
   </script>
 
 
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
 
 
 
