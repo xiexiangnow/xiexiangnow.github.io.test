@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Docker的基本操作]]></title>
+    <url>%2F2018%2F01%2F31%2FDocker%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[今天是公司2018年的年会，地点定在渝中区大礼堂，下午1点30开始，上午几乎所有的小伙伴都按捺不住自己内心澎湃的心一心准备参加公司的年会，不知道是不是做程序员做久了，还是说早已习惯了公司的”套路”，不觉得年会有什么新鲜感和吸引我的地方，当然说句实话，年会对我吸引最大的肯定是抽奖环节，据说今年的终极大奖是现金10万；趁着这么还有点时间，更新下自己的博客吧使用Docker还是蛮久的了，但对于我来时，基本都是针对于开发搭建环境使用，所以也就只会一些基本的使用，要想看深入讲解的，请绕道咯。 Docker简介DockerDocker是一个开源平台，用于自动化部署应用，以通过快捷的途径在称之为容器的轻量级软件层下打包、发布和运行这些应用。它使得应用平台独立，因为它扮演了Linux上一个额外的操作系统级虚拟化的自动化抽象层。它通过其组件cgroups和命名空间利用Linux内核的资源分离特性，达到避免虚拟机开销的目的。它使得用于部署和扩展web应用、数据库和后端服务的大规模构建组件无需依赖于特定的堆栈或供应者。 容器所谓的容器，就是那些创建自Docker镜像的软件层，它包含了独立的Linux文件系统和开箱即用的应用程序。如果我们有一个在机器中运行着的Docker容器，并且想要备份这些容器以便今后使用，或者想要迁移这些容器，那么，本教程将帮助你掌握在Linux操作系统中备份、恢复和迁移Docker容器的方法 使用及介绍操作命令显示docker系统信息1docker info 镜像搜索1docker search php 获取镜像1docker pull richarvey/nginx-php-fpm (需要哪个就pull哪个) 导入本地镜像1docker load &gt; ~/Users/xiexiang/Downloads/[镜像名] 查看镜像1docker images 显示镜像的历史1docker history 删除镜像1docker rmi -f richarvey/nginx-php-fpm (带f据说不会残留垃圾) 创建容器1docker run -d -p 80:80 --name php-zzgg-un -v /Users/xiexiang/myproject/bajieke:/var/www/html registry.alauda.cn/neucloud/nginx-php-fpm:latest 查看容器(全部)1docker ps -a 查看已运行容器1docker ps 删除容器1docker rm -f [容器id] 进入到容器1docker exec -it [容器名] bash 启动容器1docker start [容器名] 停止容器1docker stop [容器名] 重启容器1docker restart [容器名] 容器的导出导入功能1、停止容器(也可以不停止，只要下一步commit成功即可)1docker stop [容器名] 2、将容器commit为镜像 12345docker commit ec1f968cc0d0 php-zzgg-un (容器id 自定义镜像名)```` 查看生成的镜像````phpdocker images 3、save镜像为tar文件 1docker save -o /Users/xiexiang/Downloads/php-zzgg-un.tar php-zzgg-un 4、将tar文件scp到 目标docker主机 1scp php-zzgg-un.tar root@10.45.7.197:/docker 5、导入本地镜像 docker load /Users/xiexiang/Downloads/php-zzgg-un.tar]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[hexo搭建的博客如何给文章分类（NEXT主题）]]></title>
     <url>%2F2018%2F01%2F25%2Fhexo%E6%90%AD%E5%BB%BA%E7%9A%84%E5%8D%9A%E5%AE%A2%E5%A6%82%E4%BD%95%E7%BB%99%E6%96%87%E7%AB%A0%E5%88%86%E7%B1%BB%EF%BC%88NEXT%E4%B8%BB%E9%A2%98%EF%BC%89%2F</url>
     <content type="text"><![CDATA[tags：12345tags: - 前端- hexocategories: - 前端 在博客根目录输入1hexo new page tags 打开 tags/index.md ，并改成：1234title: 标签date: 日期type: "tags"comments: false 分类（同理）1hexo new page categories 打开category/index.md，改为：1234title: 分类date: 日期type: "categories"comments: false]]></content>
