@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="php," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="每一步做到极致  下一步美好自然呈现">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Xiang&#39;s Blog">
-<meta property="og:url" content="http://xiexiangnow.github.io/categories/PHP/index.html">
+<meta name="description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树12345678910111213141516171819202122">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="两个重要函数（获取无限极菜单+批量排序）">
+<meta property="og:url" content="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="每一步做到极致  下一步美好自然呈现">
+<meta property="og:description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树1234567891011121314151617181920212223242526272829303132333435363738/*** 得到菜">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-02T09:49:23.978Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Xiang&#39;s Blog">
-<meta name="twitter:description" content="每一步做到极致  下一步美好自然呈现">
+<meta name="twitter:title" content="两个重要函数（获取无限极菜单+批量排序）">
+<meta name="twitter:description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树1234567891011121314151617181920212223242526272829303132333435363738/*** 得到菜">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://xiexiangnow.github.io/categories/PHP/"/>
+  <link rel="canonical" href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/"/>
 
 
 
 
 
-  <title>Kategorie: PHP | Xiang's Blog</title>
+  <title>两个重要函数（获取无限极菜单+批量排序） | Xiang's Blog</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -285,279 +287,231 @@
           <div id="content" class="content">
             
 
+  <div id="posts" class="posts-expand">
+    
+
+  
+
   
   
   
-  <div class="post-block category">
-
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>PHP<small>Kategorie</small>
-        </h1>
-      </div>
-
-      
-        
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/02/02/用JSON获取Bing每日背景图片/" itemprop="url">
-              
-                <span itemprop="name">用JSON获取Bing每日背景图片</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">两个重要函数（获取无限极菜单+批量排序）</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:56:59+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T17:42:21+08:00">
+                2018-02-02
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/" itemprop="url">
-              
-                <span itemprop="name">两个重要函数（获取无限极菜单+批量排序）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:42:21+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+      
 
       
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/02/七牛云图床API接口指南/" itemprop="url">
-              
-                <span itemprop="name">七牛云图床API接口指南</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:33:28+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/02/PHP中静态方法-static-与非静态方法的使用及区别/" itemprop="url">
-              
-                <span itemprop="name">PHP中静态方法(static)与非静态方法的使用及区别</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:22:40+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/02/02/PHP给源代码加密的几种方法/" itemprop="url">
-              
-                <span itemprop="name">PHP给源代码加密的几种方法</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-02-02T17:08:15+08:00"
-              content="2018-02-02" >
-          02-02
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2018/01/24/远程及时修改微信菜单/" itemprop="url">
-              
-                <span itemprop="name">远程即时修改微信菜单</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-01-24T20:08:14+08:00"
-              content="2018-01-24" >
-          01-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/12/15/PHP中的 抽象类（abstract class）和 接口（interface）/" itemprop="url">
-              
-                <span itemprop="name">PHP中的 抽象类（abstract class）和 接口（interface）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-12-15T17:42:33+08:00"
-              content="2017-12-15" >
-          12-15
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/24/http中的referer/" itemprop="url">
-              
-                <span itemprop="name">http中的referer</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-24T15:28:29+08:00"
-              content="2017-11-24" >
-          11-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-      
-        
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/11/23/PHP编程/" itemprop="url">
-              
-                <span itemprop="name">PHP编程</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-11-23T14:43:33+08:00"
-              content="2017-11-23" >
-          11-23
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+        <p>以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。</p>
+<h4 id="获取目录树"><a href="#获取目录树" class="headerlink" title="获取目录树"></a>获取目录树</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 得到菜单栏目树</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> xiexiang 2016-03-17</span></span><br><span class="line"><span class="comment">* <span class="doctag">@params</span> eg $map = "name = 'xiexiang'"   //查询条件</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getMenu</span><span class="params">($map )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//实例化数据表menu</span></span><br><span class="line">    $menu = <span class="keyword">new</span> model_op_menu() ;</span><br><span class="line">    $order = <span class="string">"ORDER BY level ASC,sort DESC"</span>;</span><br><span class="line">    $menu_list = $menu-&gt; select($map , <span class="string">''</span>, <span class="string">''</span>, $order , <span class="string">''</span>, <span class="string">''</span>);</span><br><span class="line">    $mod_list = $menu_list-&gt; items;</span><br><span class="line">    <span class="keyword">if</span> (!$mod_list || <span class="keyword">empty</span>( $mod_list)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $tmp = <span class="keyword">array</span>() ;</span><br><span class="line">    $address = <span class="keyword">array</span>() ; <span class="comment">//父级地址</span></span><br><span class="line">    <span class="keyword">foreach</span> ($mod_list <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">        $id = $v[ <span class="string">'id'</span>];</span><br><span class="line">        <span class="keyword">if</span> ($v [<span class="string">'level'</span>] &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">//一级</span></span><br><span class="line">            $tmp [$id] = $v;</span><br><span class="line">            $address [$id] = &amp; $tmp[$id ];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//子集</span></span><br><span class="line">            $pid = $v[ <span class="string">'pid'</span>];</span><br><span class="line">            <span class="keyword">if</span> (!$address[ $pid][<span class="string">'child'</span> ]) &#123;</span><br><span class="line">                $address[ $pid][<span class="string">'child'</span> ] = <span class="keyword">array</span>() ;</span><br><span class="line">            &#125;</span><br><span class="line">            $address [$pid][ <span class="string">'child'</span>][$id ] = $v;</span><br><span class="line">            $address [$id] = &amp; $address[$pid ][<span class="string">'child'</span>][ $id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $tmp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="批量排序"><a href="#批量排序" class="headerlink" title="批量排序"></a>批量排序</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 批量排序</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pagesort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//异常插入</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        $sort = lib_BaseUtils::getStr( $_GET[<span class="string">'sort'</span> ]);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>( $sort)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>( <span class="string">'请选择需要排序的数据！'</span> , <span class="number">0</span>) ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ( $sort <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!is_numeric( $k) || !is_numeric($v )) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $sql_bat_sort .= <span class="string">" WHEN &#123; $k&#125; THEN &#123;$v&#125; "</span>;</span><br><span class="line">            $sql_ids .= <span class="string">','</span> . $k;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $menu = <span class="keyword">new</span> model_op_menu() ;</span><br><span class="line">        $sql = <span class="string">"UPDATE op_menu SET sort= CASE id "</span> . $sql_bat_sort . <span class="string">" END WHERE id IN ("</span> . trim($sql_ids , <span class="string">', '</span>) . <span class="string">")"</span>;</span><br><span class="line">        $menu -&gt;query( $sql);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'批量排序成功！'</span>, <span class="number">1</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $e ) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span> -&gt;printmsg( $e-&gt;getMessage (), $e -&gt;getCode()) ;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="巧办法"><a href="#巧办法" class="headerlink" title="巧办法"></a>巧办法</h4><p>上诉的获取目录树也可以用通过更加简单的办法来实现，在数据库设计合理的情况下，可以使用递归的方式来做。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * - 得到树形处理后的分类列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $pid</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $result</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $space</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getTree</span><span class="params">($pid=<span class="number">0</span>,&amp;$result=[],$space=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $space+=<span class="number">2</span>;</span><br><span class="line">        $parents = Category::where(<span class="string">'cate_pid'</span>,$pid)-&gt;orderBy(<span class="string">'cate_order'</span>,<span class="string">'DESC'</span>)-&gt;get();</span><br><span class="line">        <span class="keyword">foreach</span> ($parents <span class="keyword">as</span> $key =&gt; $val)&#123;</span><br><span class="line">            <span class="keyword">if</span> ($val-&gt;cate_pid != <span class="number">0</span>)&#123;</span><br><span class="line">                $val[<span class="string">'cate_name'</span>] = str_repeat(<span class="string">'&amp;nbsp;&amp;nbsp;&amp;nbsp;'</span>,$space).<span class="string">'▲ '</span>.$val[<span class="string">'cate_name'</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            $result[] = $val;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;getTree($val-&gt;cate_id,$result,$space);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
+    
+    
+    
 
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-222806@2x.png" alt="Xiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213742@2x.png" alt="Xiang WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213713@2x.png" alt="Xiang Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Xiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/" title="两个重要函数（获取无限极菜单+批量排序）">http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/02/七牛云图床API接口指南/" rel="next" title="七牛云图床API接口指南">
+                <i class="fa fa-chevron-left"></i> 七牛云图床API接口指南
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/用JSON获取Bing每日背景图片/" rel="prev" title="用JSON获取Bing每日背景图片">
+                用JSON获取Bing每日背景图片 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -565,6 +519,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -585,8 +543,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概要
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -688,6 +655,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取目录树"><span class="nav-number">1.</span> <span class="nav-text">获取目录树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量排序"><span class="nav-number">2.</span> <span class="nav-text">批量排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#巧办法"><span class="nav-number">3.</span> <span class="nav-text">巧办法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -830,6 +813,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
 
   
 

@@ -1,0 +1,1190 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="加密," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="虽说分享是传统的美德，但我们有时候辛辛苦苦写一些程序只是为了卖点小钱，挣点辛苦费，也防止有些没有道德的人倒卖，所以我们不得不对我们的程序进行加密，以下我们来介绍一下如何通过PHP的自定义函数来加密我们的PHP源代码.  方法一：123456789101112131415161718192021222324&amp;lt">
+<meta name="keywords" content="加密">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PHP给源代码加密的几种方法">
+<meta property="og:url" content="http://xiexiangnow.github.io/2018/02/02/PHP给源代码加密的几种方法/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="虽说分享是传统的美德，但我们有时候辛辛苦苦写一些程序只是为了卖点小钱，挣点辛苦费，也防止有些没有道德的人倒卖，所以我们不得不对我们的程序进行加密，以下我们来介绍一下如何通过PHP的自定义函数来加密我们的PHP源代码.  方法一：123456789101112131415161718192021222324&amp;lt;?php   function encode_file_contents($file">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-02T09:10:34.923Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="PHP给源代码加密的几种方法">
+<meta name="twitter:description" content="虽说分享是传统的美德，但我们有时候辛辛苦苦写一些程序只是为了卖点小钱，挣点辛苦费，也防止有些没有道德的人倒卖，所以我们不得不对我们的程序进行加密，以下我们来介绍一下如何通过PHP的自定义函数来加密我们的PHP源代码.  方法一：123456789101112131415161718192021222324&amp;lt;?php   function encode_file_contents($file">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiexiangnow.github.io/2018/02/02/PHP给源代码加密的几种方法/"/>
+
+
+
+
+
+  <title>PHP给源代码加密的几种方法 | Xiang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xiang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A year's plan starts with spring.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/02/02/PHP给源代码加密的几种方法/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">PHP给源代码加密的几种方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T17:08:15+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>虽说分享是传统的美德，但我们有时候辛辛苦苦写一些程序只是为了卖点小钱，挣点辛苦费，也防止有些没有道德的人倒卖，所以我们不得不对我们的程序进行加密，以下我们来介绍一下如何通过PHP的自定义函数来加密我们的PHP源代码.</p>
+</blockquote>
+<p>方法一：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">encode_file_contents</span><span class="params">($filename)</span> </span>&#123;  </span><br><span class="line">     $type=strtolower(substr(strrchr($filename,<span class="string">'.'</span>),<span class="number">1</span>));  </span><br><span class="line">     <span class="keyword">if</span> (<span class="string">'php'</span> == $type &amp;&amp; is_file($filename) &amp;&amp; is_writable($filename)) &#123; <span class="comment">// 如果是PHP文件 并且可写 则进行压缩编码  </span></span><br><span class="line">         $contents = file_get_contents($filename); <span class="comment">// 判断文件是否已经被编码处理  </span></span><br><span class="line">         $contents = php_strip_whitespace($filename);   </span><br><span class="line"> </span><br><span class="line">         <span class="comment">// 去除PHP头部和尾部标识  </span></span><br><span class="line">         $headerPos = strpos($contents,<span class="string">'&lt;?php'</span>);  </span><br><span class="line">         $footerPos = strrpos($contents,<span class="string">'?&gt;'</span>);  </span><br><span class="line">         $contents = substr($contents, $headerPos + <span class="number">5</span>, $footerPos - $headerPos);  </span><br><span class="line">         $encode = base64_encode(gzdeflate($contents)); <span class="comment">// 开始编码  </span></span><br><span class="line">         $encode = <span class="string">'&lt;?php'</span>.<span class="string">"\n eval(gzinflate(base64_decode("</span>.<span class="string">"'"</span>.$encode.<span class="string">"'"</span>.<span class="string">")));\n\n?&gt;"</span>;   </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">return</span> file_put_contents($filename, $encode);  </span><br><span class="line">     &#125;  </span><br><span class="line">     <span class="keyword">return</span> <span class="keyword">false</span>;  </span><br><span class="line"> &#125;   </span><br><span class="line"> </span><br><span class="line"> <span class="comment">//调用函数  </span></span><br><span class="line"> $filename = <span class="string">'dam.php'</span>;  </span><br><span class="line"> encode_file_contents($filename);  </span><br><span class="line"> <span class="keyword">echo</span> <span class="string">"OK,加密完成！"</span> </span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>方法二：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"> </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">RandAbc</span><span class="params">($length = <span class="string">""</span>)</span> </span>&#123; <span class="comment">// 返回随机字符串  </span></span><br><span class="line">     $str = <span class="string">"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"</span>;  </span><br><span class="line">     <span class="keyword">return</span> str_shuffle($str);  </span><br><span class="line"> &#125;   </span><br><span class="line"> </span><br><span class="line"> $filename = <span class="string">'index.php'</span>; <span class="comment">//要加密的文件  </span></span><br><span class="line"> $T_k1 = RandAbc(); <span class="comment">//随机密匙1  </span></span><br><span class="line"> $T_k2 = RandAbc(); <span class="comment">//随机密匙2  </span></span><br><span class="line"> $vstr = file_get_contents($filename);  </span><br><span class="line"> $v1 = base64_encode($vstr);  </span><br><span class="line"> $c = strtr($v1, $T_k1, $T_k2); <span class="comment">//根据密匙替换对应字符。  </span></span><br><span class="line"> $c = $T_k1.$T_k2.$c;  </span><br><span class="line"> $q1 = <span class="string">"O00O0O"</span>;  </span><br><span class="line"> $q2 = <span class="string">"O0O000"</span>;  </span><br><span class="line"> $q3 = <span class="string">"O0OO00"</span>;  </span><br><span class="line"> $q4 = <span class="string">"OO0O00"</span>;  </span><br><span class="line"> $q5 = <span class="string">"OO0000"</span>;  </span><br><span class="line"> $q6 = <span class="string">"O00OO0"</span>;  </span><br><span class="line"> $s = <span class="string">'$'</span>.$q6.<span class="string">'=urldecode("%6E1%7A%62%2F%6D%615%5C%76%740%6928%2D%70%78%75%71%79%2A6%6C%72%6B%64%679%5F%65%68%63%73%77%6F4%2B%6637%6A");$'</span>.$q1.<span class="string">'=$'</span>.$q6.<span class="string">'&#123;3&#125;.$'</span>.$q6.<span class="string">'&#123;6&#125;.$'</span>.$q6.<span class="string">'&#123;33&#125;.$'</span>.$q6.<span class="string">'&#123;30&#125;;$'</span>.$q3.<span class="string">'=$'</span>.$q6.<span class="string">'&#123;33&#125;.$'</span>.$q6.<span class="string">'&#123;10&#125;.$'</span>.$q6.<span class="string">'&#123;24&#125;.$'</span>.$q6.<span class="string">'&#123;10&#125;.$'</span>.$q6.<span class="string">'&#123;24&#125;;$'</span>.$q4.<span class="string">'=$'</span>.$q3.<span class="string">'&#123;0&#125;.$'</span>.$q6.<span class="string">'&#123;18&#125;.$'</span>.$q6.<span class="string">'&#123;3&#125;.$'</span>.$q3.<span class="string">'&#123;0&#125;.$'</span>.$q3.<span class="string">'&#123;1&#125;.$'</span>.$q6.<span class="string">'&#123;24&#125;;$'</span>.$q5.<span class="string">'=$'</span>.$q6.<span class="string">'&#123;7&#125;.$'</span>.$q6.<span class="string">'&#123;13&#125;;$'</span>.$q1.<span class="string">'.=$'</span>.$q6.<span class="string">'&#123;22&#125;.$'</span>.$q6.<span class="string">'&#123;36&#125;.$'</span>.$q6.<span class="string">'&#123;29&#125;.$'</span>.$q6.<span class="string">'&#123;26&#125;.$'</span>.$q6.<span class="string">'&#123;30&#125;.$'</span>.$q6.<span class="string">'&#123;32&#125;.$'</span>.$q6.<span class="string">'&#123;35&#125;.$'</span>.$q6.<span class="string">'&#123;26&#125;.$'</span>.$q6.<span class="string">'&#123;30&#125;;eval($'</span>.$q1.<span class="string">'("'</span>.base64_encode(<span class="string">'$'</span>.$q2.<span class="string">'="'</span>.$c.<span class="string">'";eval(\'?&gt;\'.$'</span>.$q1.<span class="string">'($'</span>.$q3.<span class="string">'($'</span>.$q4.<span class="string">'($'</span>.$q2.<span class="string">',$'</span>.$q5.<span class="string">'*2),$'</span>.$q4.<span class="string">'($'</span>.$q2.<span class="string">',$'</span>.$q5.<span class="string">',$'</span>.$q5.<span class="string">'),$'</span>.$q4.<span class="string">'($'</span>.$q2.<span class="string">',0,$'</span>.$q5.<span class="string">'))));'</span>).<span class="string">'"));'</span>;  </span><br><span class="line"> </span><br><span class="line"> $s = <span class="string">'&lt;?php '</span>.<span class="string">"\n"</span>.$s.<span class="string">"\n"</span>.<span class="string">' ?&gt;'</span>;  </span><br><span class="line"> <span class="comment">//echo $s;  </span></span><br><span class="line"> <span class="comment">// 生成 加密后的PHP文件  </span></span><br><span class="line"> $fpp1 = fopen(<span class="string">'temp_'</span>.$filename, <span class="string">'w'</span>);  </span><br><span class="line"> fwrite($fpp1, $s) <span class="keyword">or</span> <span class="keyword">die</span>(<span class="string">'写文件错误'</span>);  </span><br><span class="line"> </span><br><span class="line"> <span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>方法三：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span>  </span><br><span class="line"> </span><br><span class="line"> <span class="class"><span class="keyword">class</span> <span class="title">text_auth</span>  </span></span><br><span class="line"><span class="class"> </span>&#123;  </span><br><span class="line">     <span class="keyword">var</span> $n_iter;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">text_auth</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         <span class="keyword">$this</span>-&gt;setIter(<span class="number">32</span>);  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">setIter</span><span class="params">($n_iter)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         <span class="keyword">$this</span>-&gt;n_iter = $n_iter;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">getIter</span><span class="params">()</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">$this</span>-&gt;n_iter;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">encrypt</span><span class="params">($data, $key)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $n = <span class="keyword">$this</span>-&gt;_resize($data, <span class="number">4</span>);  </span><br><span class="line"> </span><br><span class="line">         $data_long[<span class="number">0</span>]   = $n;  </span><br><span class="line">         $n_data_long    = <span class="keyword">$this</span>-&gt;_str2long(<span class="number">1</span>, $data, $data_long);  </span><br><span class="line"> </span><br><span class="line">         $n = count($data_long);  </span><br><span class="line">         <span class="keyword">if</span> (($n &amp; <span class="number">1</span>) == <span class="number">1</span>) &#123;  </span><br><span class="line">             $data_long[$n] = chr(<span class="number">0</span>);  </span><br><span class="line">             $n_data_long++;  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">$this</span>-&gt;_resize($key, <span class="number">16</span>, <span class="keyword">true</span>);  </span><br><span class="line">         <span class="keyword">if</span> ( <span class="string">''</span> == $key )  </span><br><span class="line">             $key = <span class="string">'0000000000000000'</span>;  </span><br><span class="line"> </span><br><span class="line">         $n_key_long = <span class="keyword">$this</span>-&gt;_str2long(<span class="number">0</span>, $key, $key_long);  </span><br><span class="line"> </span><br><span class="line">         $enc_data   = <span class="string">''</span>;  </span><br><span class="line">         $w          = <span class="keyword">array</span>(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">         $j          = <span class="number">0</span>;  </span><br><span class="line">         $k          = <span class="keyword">array</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">         <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $n_data_long; ++$i) &#123;  </span><br><span class="line">             <span class="keyword">if</span> ($j + <span class="number">4</span> &lt;= $n_key_long) &#123;  </span><br><span class="line">                 $k[<span class="number">0</span>] = $key_long[$j];  </span><br><span class="line">                 $k[<span class="number">1</span>] = $key_long[$j + <span class="number">1</span>];  </span><br><span class="line">                 $k[<span class="number">2</span>] = $key_long[$j + <span class="number">2</span>];  </span><br><span class="line">                 $k[<span class="number">3</span>] = $key_long[$j + <span class="number">3</span>];  </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                 $k[<span class="number">0</span>] = $key_long[$j % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">1</span>] = $key_long[($j + <span class="number">1</span>) % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">2</span>] = $key_long[($j + <span class="number">2</span>) % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">3</span>] = $key_long[($j + <span class="number">3</span>) % $n_key_long];  </span><br><span class="line">             &#125;  </span><br><span class="line">             $j = ($j + <span class="number">4</span>) % $n_key_long;  </span><br><span class="line"> </span><br><span class="line">             <span class="keyword">$this</span>-&gt;_encipherLong($data_long[$i], $data_long[++$i], $w, $k);  </span><br><span class="line"> </span><br><span class="line">             $enc_data .= <span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">0</span>]);  </span><br><span class="line">             $enc_data .= <span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">1</span>]);  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">return</span> $enc_data;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">decrypt</span><span class="params">($enc_data, $key)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $n_enc_data_long = <span class="keyword">$this</span>-&gt;_str2long(<span class="number">0</span>, $enc_data, $enc_data_long);  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">$this</span>-&gt;_resize($key, <span class="number">16</span>, <span class="keyword">true</span>);  </span><br><span class="line">         <span class="keyword">if</span> ( <span class="string">''</span> == $key )  </span><br><span class="line">             $key = <span class="string">'0000000000000000'</span>;  </span><br><span class="line"> </span><br><span class="line">         $n_key_long = <span class="keyword">$this</span>-&gt;_str2long(<span class="number">0</span>, $key, $key_long);  </span><br><span class="line"> </span><br><span class="line">         $data   = <span class="string">''</span>;  </span><br><span class="line">         $w      = <span class="keyword">array</span>(<span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">         $j      = <span class="number">0</span>;  </span><br><span class="line">         $len    = <span class="number">0</span>;  </span><br><span class="line">         $k      = <span class="keyword">array</span>(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>);  </span><br><span class="line">         $pos    = <span class="number">0</span>;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">for</span> ($i = <span class="number">0</span>; $i &lt; $n_enc_data_long; $i += <span class="number">2</span>) &#123;  </span><br><span class="line">             <span class="keyword">if</span> ($j + <span class="number">4</span> &lt;= $n_key_long) &#123;  </span><br><span class="line">                 $k[<span class="number">0</span>] = $key_long[$j];  </span><br><span class="line">                 $k[<span class="number">1</span>] = $key_long[$j + <span class="number">1</span>];  </span><br><span class="line">                 $k[<span class="number">2</span>] = $key_long[$j + <span class="number">2</span>];  </span><br><span class="line">                 $k[<span class="number">3</span>] = $key_long[$j + <span class="number">3</span>];  </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                 $k[<span class="number">0</span>] = $key_long[$j % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">1</span>] = $key_long[($j + <span class="number">1</span>) % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">2</span>] = $key_long[($j + <span class="number">2</span>) % $n_key_long];  </span><br><span class="line">                 $k[<span class="number">3</span>] = $key_long[($j + <span class="number">3</span>) % $n_key_long];  </span><br><span class="line">             &#125;  </span><br><span class="line">             $j = ($j + <span class="number">4</span>) % $n_key_long;  </span><br><span class="line"> </span><br><span class="line">             <span class="keyword">$this</span>-&gt;_decipherLong($enc_data_long[$i], $enc_data_long[$i + <span class="number">1</span>], $w, $k);  </span><br><span class="line"> </span><br><span class="line">             <span class="keyword">if</span> (<span class="number">0</span> == $i) &#123;  </span><br><span class="line">                 $len = $w[<span class="number">0</span>];  </span><br><span class="line">                 <span class="keyword">if</span> (<span class="number">4</span> &lt;= $len) &#123;  </span><br><span class="line">                     $data .= <span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">1</span>]);  </span><br><span class="line">                 &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                     $data .= substr(<span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">1</span>]), <span class="number">0</span>, $len % <span class="number">4</span>);  </span><br><span class="line">                 &#125;  </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                 $pos = ($i - <span class="number">1</span>) * <span class="number">4</span>;  </span><br><span class="line">                 <span class="keyword">if</span> ($pos + <span class="number">4</span> &lt;= $len) &#123;  </span><br><span class="line">                     $data .= <span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">0</span>]);  </span><br><span class="line"> </span><br><span class="line">                     <span class="keyword">if</span> ($pos + <span class="number">8</span> &lt;= $len) &#123;  </span><br><span class="line">                         $data .= <span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">1</span>]);  </span><br><span class="line">                     &#125; <span class="keyword">elseif</span> ($pos + <span class="number">4</span> &lt; $len) &#123;  </span><br><span class="line">                         $data .= substr(<span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">1</span>]), <span class="number">0</span>, $len % <span class="number">4</span>);  </span><br><span class="line">                     &#125;  </span><br><span class="line">                 &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                     $data .= substr(<span class="keyword">$this</span>-&gt;_long2str($w[<span class="number">0</span>]), <span class="number">0</span>, $len % <span class="number">4</span>);  </span><br><span class="line">                 &#125;  </span><br><span class="line">             &#125;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="keyword">return</span> $data;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_encipherLong</span><span class="params">($y, $z, &amp;$w, &amp;$k)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $sum    = (integer) <span class="number">0</span>;  </span><br><span class="line">         $delta  = <span class="number">0x9E3779B9</span>;  </span><br><span class="line">         $n      = (integer) <span class="keyword">$this</span>-&gt;n_iter;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">while</span> ($n-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">             $y      = <span class="keyword">$this</span>-&gt;_add($y,  </span><br><span class="line">                                   <span class="keyword">$this</span>-&gt;_add($z &lt;&lt; <span class="number">4</span> ^ <span class="keyword">$this</span>-&gt;_rshift($z, <span class="number">5</span>), $z) ^  </span><br><span class="line">                                     <span class="keyword">$this</span>-&gt;_add($sum, $k[$sum &amp; <span class="number">3</span>]));  </span><br><span class="line">             $sum    = <span class="keyword">$this</span>-&gt;_add($sum, $delta);  </span><br><span class="line">             $z      = <span class="keyword">$this</span>-&gt;_add($z,  </span><br><span class="line">                                   <span class="keyword">$this</span>-&gt;_add($y &lt;&lt; <span class="number">4</span> ^ <span class="keyword">$this</span>-&gt;_rshift($y, <span class="number">5</span>), $y) ^  </span><br><span class="line">                                     <span class="keyword">$this</span>-&gt;_add($sum, $k[<span class="keyword">$this</span>-&gt;_rshift($sum, <span class="number">11</span>) &amp; <span class="number">3</span>]));  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         $w[<span class="number">0</span>] = $y;  </span><br><span class="line">         $w[<span class="number">1</span>] = $z;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_decipherLong</span><span class="params">($y, $z, &amp;$w, &amp;$k)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $sum    = <span class="number">0xC6EF3720</span>;  </span><br><span class="line">         $delta  = <span class="number">0x9E3779B9</span>;  </span><br><span class="line">         $n      = (integer) <span class="keyword">$this</span>-&gt;n_iter;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">while</span> ($n-- &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">             $z      = <span class="keyword">$this</span>-&gt;_add($z,  </span><br><span class="line">                                   -(<span class="keyword">$this</span>-&gt;_add($y &lt;&lt; <span class="number">4</span> ^ <span class="keyword">$this</span>-&gt;_rshift($y, <span class="number">5</span>), $y) ^  </span><br><span class="line">                                         <span class="keyword">$this</span>-&gt;_add($sum, $k[<span class="keyword">$this</span>-&gt;_rshift($sum, <span class="number">11</span>) &amp; <span class="number">3</span>])));  </span><br><span class="line">             $sum    = <span class="keyword">$this</span>-&gt;_add($sum, -$delta);  </span><br><span class="line">             $y      = <span class="keyword">$this</span>-&gt;_add($y,  </span><br><span class="line">                                   -(<span class="keyword">$this</span>-&gt;_add($z &lt;&lt; <span class="number">4</span> ^ <span class="keyword">$this</span>-&gt;_rshift($z, <span class="number">5</span>), $z) ^  </span><br><span class="line">                                         <span class="keyword">$this</span>-&gt;_add($sum, $k[$sum &amp; <span class="number">3</span>])));  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         $w[<span class="number">0</span>] = $y;  </span><br><span class="line">         $w[<span class="number">1</span>] = $z;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_resize</span><span class="params">(&amp;$data, $size, $nonull = false)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $n      = strlen($data);  </span><br><span class="line">         $nmod   = $n % $size;  </span><br><span class="line">         <span class="keyword">if</span> ( <span class="number">0</span> == $nmod )  </span><br><span class="line">             $nmod = $size;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span> ($nmod &gt; <span class="number">0</span>) &#123;  </span><br><span class="line">             <span class="keyword">if</span> ($nonull) &#123;  </span><br><span class="line">                 <span class="keyword">for</span> ($i = $n; $i &lt; $n - $nmod + $size; ++$i) &#123;  </span><br><span class="line">                     $data[$i] = $data[$i % $n];  </span><br><span class="line">                 &#125;  </span><br><span class="line">             &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">                 <span class="keyword">for</span> ($i = $n; $i &lt; $n - $nmod + $size; ++$i) &#123;  </span><br><span class="line">                     $data[$i] = chr(<span class="number">0</span>);  </span><br><span class="line">                 &#125;  </span><br><span class="line">             &#125;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="keyword">return</span> $n;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_hex2bin</span><span class="params">($str)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $len = strlen($str);  </span><br><span class="line">         <span class="keyword">return</span> pack(<span class="string">'H'</span> . $len, $str);  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_str2long</span><span class="params">($start, &amp;$data, &amp;$data_long)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $n = strlen($data);  </span><br><span class="line"> </span><br><span class="line">         $tmp    = unpack(<span class="string">'N*'</span>, $data);  </span><br><span class="line">         $j      = $start;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">foreach</span> ($tmp <span class="keyword">as</span> $value)  </span><br><span class="line">             $data_long[$j++] = $value;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">return</span> $j;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_long2str</span><span class="params">($l)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         <span class="keyword">return</span> pack(<span class="string">'N'</span>, $l);  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_rshift</span><span class="params">($integer, $n)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         <span class="keyword">if</span> (<span class="number">0xffffffff</span> &lt; $integer || <span class="number">-0xffffffff</span> &gt; $integer) &#123;  </span><br><span class="line">             $integer = fmod($integer, <span class="number">0xffffffff</span> + <span class="number">1</span>);  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span> (<span class="number">0x7fffffff</span> &lt; $integer) &#123;  </span><br><span class="line">             $integer -= <span class="number">0xffffffff</span> + <span class="number">1.0</span>;  </span><br><span class="line">         &#125; <span class="keyword">elseif</span> (<span class="number">-0x80000000</span> &gt; $integer) &#123;  </span><br><span class="line">             $integer += <span class="number">0xffffffff</span> + <span class="number">1.0</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span> (<span class="number">0</span> &gt; $integer) &#123;  </span><br><span class="line">             $integer &amp;= <span class="number">0x7fffffff</span>;  </span><br><span class="line">             $integer &gt;&gt;= $n;  </span><br><span class="line">             $integer |= <span class="number">1</span> &lt;&lt; (<span class="number">31</span> - $n);  </span><br><span class="line">         &#125; <span class="keyword">else</span> &#123;  </span><br><span class="line">             $integer &gt;&gt;= $n;  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">return</span> $integer;  </span><br><span class="line">     &#125;  </span><br><span class="line"> </span><br><span class="line">     <span class="function"><span class="keyword">function</span> <span class="title">_add</span><span class="params">($i1, $i2)</span>  </span></span><br><span class="line"><span class="function">     </span>&#123;  </span><br><span class="line">         $result = <span class="number">0.0</span>;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">foreach</span> (func_get_args() <span class="keyword">as</span> $value) &#123;  </span><br><span class="line">             <span class="keyword">if</span> (<span class="number">0.0</span> &gt; $value) &#123;  </span><br><span class="line">                 $value -= <span class="number">1.0</span> + <span class="number">0xffffffff</span>;  </span><br><span class="line">             &#125;  </span><br><span class="line"> </span><br><span class="line">             $result += $value;  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span> (<span class="number">0xffffffff</span> &lt; $result || <span class="number">-0xffffffff</span> &gt; $result) &#123;  </span><br><span class="line">             $result = fmod($result, <span class="number">0xffffffff</span> + <span class="number">1</span>);  </span><br><span class="line">         &#125;  </span><br><span class="line"> </span><br><span class="line">         <span class="keyword">if</span> (<span class="number">0x7fffffff</span> &lt; $result) &#123;  </span><br><span class="line">             $result -= <span class="number">0xffffffff</span> + <span class="number">1.0</span>;  </span><br><span class="line">         &#125; <span class="keyword">elseif</span> (<span class="number">-0x80000000</span> &gt; $result) &#123;  </span><br><span class="line">             $result += <span class="number">0xffffffff</span> + <span class="number">1.0</span>;  </span><br><span class="line">         &#125;  </span><br><span class="line">         <span class="keyword">return</span> $result;  </span><br><span class="line">     &#125;  </span><br><span class="line"> &#125;  </span><br><span class="line"> <span class="meta">?&gt;</span> </span><br><span class="line">使用方法参考如下：</span><br><span class="line"><span class="comment">// 加密过程</span></span><br><span class="line">view sourceprint?</span><br><span class="line"> $text_file = S_ROOT . <span class="string">'./456.php'</span>;  </span><br><span class="line"> $str = @file_get_contents($text_file);  </span><br><span class="line"> </span><br><span class="line"> <span class="keyword">require_once</span> S_ROOT . <span class="string">"./text_auth.php"</span>;  </span><br><span class="line"> $text_auth = <span class="keyword">new</span> text_auth(<span class="number">64</span>);  </span><br><span class="line"> </span><br><span class="line"> $str = $text_auth-&gt;encrypt($str, <span class="string">"qianyunlai.com"</span>);  </span><br><span class="line"> </span><br><span class="line"> $filename = S_ROOT . <span class="string">'./789.php'</span>; <span class="comment">// 加密后的文本为二进制，普通的文本编辑器无法正常查看  </span></span><br><span class="line"> file_put_contents($filename, $str); </span><br><span class="line"><span class="comment">// 解密过程</span></span><br><span class="line">view sourceprint</span><br><span class="line">?<span class="number">01</span> $text_file = S_ROOT . <span class="string">'./789.php'</span>;  </span><br><span class="line"> $str = @file_get_contents($text_file);  </span><br><span class="line"> </span><br><span class="line"> <span class="keyword">require_once</span> S_ROOT . <span class="string">"./text_auth.php"</span>;  </span><br><span class="line"> $text_auth = <span class="keyword">new</span> text_auth(<span class="number">64</span>);  </span><br><span class="line"> </span><br><span class="line"> $str = $text_auth-&gt;decrypt($str, <span class="string">"qianyunlai.com"</span>);  </span><br><span class="line"> </span><br><span class="line"> $filename = S_ROOT . <span class="string">'./456.php'</span>;  </span><br><span class="line"> file_put_contents($filename, $str);</span><br></pre></td></tr></table></figure></p>
+<p>该方法可以对文本的内容进行 二进制加密 与 解密。</p>
+<p>以上几种方法各有各的优点和用处，大家也选择使用</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-222806@2x.png" alt="Xiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213742@2x.png" alt="Xiang WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213713@2x.png" alt="Xiang Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Xiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://xiexiangnow.github.io/2018/02/02/PHP给源代码加密的几种方法/" title="PHP给源代码加密的几种方法">http://xiexiangnow.github.io/2018/02/02/PHP给源代码加密的几种方法/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/加密/" rel="tag"># 加密</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/31/Docker的基本操作/" rel="next" title="Docker的基本操作">
+                <i class="fa fa-chevron-left"></i> Docker的基本操作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/PHP中静态方法-static-与非静态方法的使用及区别/" rel="prev" title="PHP中静态方法(static)与非静态方法的使用及区别">
+                PHP中静态方法(static)与非静态方法的使用及区别 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg"
+                alt="Xiang" />
+            
+              <p class="site-author-name" itemprop="name">Xiang</p>
+              <p class="site-description motion-element" itemprop="description">每一步做到极致 <br> 下一步美好自然呈现</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">Tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xiexiangnow" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/6272025793/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haofly.net" title="精通各种语言全栈攻城狮豪豪" target="_blank">精通各种语言全栈攻城狮豪豪</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tanjiangfu.github.io" title="精通运维兼开发攻城狮贱贱" target="_blank">精通运维兼开发攻城狮贱贱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://lqstone.github.io" title="精通前端开发攻城狮巧巧" target="_blank">精通前端开发攻城狮巧巧</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

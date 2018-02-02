@@ -1,0 +1,1230 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.3" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.3">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.3">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.3" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="php," />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="登录到七牛云官网注册一个账号地址：http://www.qiniu.com 获取对应的七牛云秘钥位置：个人面板-&amp;gt;秘钥管理获取一对 AccessKey/SecretKey 秘钥 建立存储空间位置：对象存储对象存储中可以管理上传的文件、对空间的设置、域名绑定、样式分割符设置及图片样式设定。 基本用法文档地址">
+<meta name="keywords" content="php">
+<meta property="og:type" content="article">
+<meta property="og:title" content="七牛云图床API接口指南">
+<meta property="og:url" content="http://xiexiangnow.github.io/2018/02/02/七牛云图床API接口指南/index.html">
+<meta property="og:site_name" content="Xiang&#39;s Blog">
+<meta property="og:description" content="登录到七牛云官网注册一个账号地址：http://www.qiniu.com 获取对应的七牛云秘钥位置：个人面板-&amp;gt;秘钥管理获取一对 AccessKey/SecretKey 秘钥 建立存储空间位置：对象存储对象存储中可以管理上传的文件、对空间的设置、域名绑定、样式分割符设置及图片样式设定。 基本用法文档地址：http://developer.qiniu.com/code/v7/sdk/php.">
+<meta property="og:locale" content="zh-CN">
+<meta property="og:updated_time" content="2018-02-02T09:39:52.701Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="七牛云图床API接口指南">
+<meta name="twitter:description" content="登录到七牛云官网注册一个账号地址：http://www.qiniu.com 获取对应的七牛云秘钥位置：个人面板-&amp;gt;秘钥管理获取一对 AccessKey/SecretKey 秘钥 建立存储空间位置：对象存储对象存储中可以管理上传的文件、对空间的设置、域名绑定、样式分割符设置及图片样式设定。 基本用法文档地址：http://developer.qiniu.com/code/v7/sdk/php.">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    version: '5.1.3',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":true,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://xiexiangnow.github.io/2018/02/02/七牛云图床API接口指南/"/>
+
+
+
+
+
+  <title>七牛云图床API接口指南 | Xiang's Blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Xiang's Blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">A year's plan starts with spring.</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-首页">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-关于">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-分类">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-归档">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  
+  <div class="algolia-popup popup search-popup">
+    <div class="algolia-search">
+      <div class="algolia-search-input-icon">
+        <i class="fa fa-search"></i>
+      </div>
+      <div class="algolia-search-input" id="algolia-search-input"></div>
+    </div>
+
+    <div class="algolia-results">
+      <div id="algolia-stats"></div>
+      <div id="algolia-hits"></div>
+      <div id="algolia-pagination" class="algolia-pagination"></div>
+    </div>
+
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+  </div>
+
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/02/02/七牛云图床API接口指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Xiang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiang's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">七牛云图床API接口指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-02-02T17:33:28+08:00">
+                2018-02-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="登录到七牛云官网注册一个账号"><a href="#登录到七牛云官网注册一个账号" class="headerlink" title="登录到七牛云官网注册一个账号"></a>登录到七牛云官网注册一个账号</h3><p>地址：<a href="http://www.qiniu.com" target="_blank" rel="noopener">http://www.qiniu.com</a></p>
+<h3 id="获取对应的七牛云秘钥"><a href="#获取对应的七牛云秘钥" class="headerlink" title="获取对应的七牛云秘钥"></a>获取对应的七牛云秘钥</h3><p>位置：个人面板-&gt;秘钥管理<br>获取一对 AccessKey/SecretKey 秘钥</p>
+<h3 id="建立存储空间"><a href="#建立存储空间" class="headerlink" title="建立存储空间"></a>建立存储空间</h3><p>位置：对象存储<br>对象存储中可以管理上传的文件、对空间的设置、域名绑定、样式分割符设置及图片样式设定。</p>
+<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>文档地址：<a href="http://developer.qiniu.com/code/v7/sdk/php.html#usage" target="_blank" rel="noopener">http://developer.qiniu.com/code/v7/sdk/php.html#usage</a></p>
+<h4 id="1、引入SDK"><a href="#1、引入SDK" class="headerlink" title="1、引入SDK"></a>1、引入SDK</h4><p>无论你是通过哪种方式安装的 SDK，只需要一句简单的 require 语句将安装好的SDK包含到你的项目中。请参考如下表格，找到适合你的安装方式，将SDK引入到你的项目中。请用你项目中的实际路径替换 path_to_sdk。<br>  <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">Composer 安装</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">下载Composer安装包</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">下载源码安装包</span><br><span class="line"></span><br><span class="line"><span class="keyword">require</span> <span class="string">'path_to_sdk/autoload.php'</span>;</span><br></pre></td></tr></table></figure></p>
+<h4 id="2、SDK结构"><a href="#2、SDK结构" class="headerlink" title="2、SDK结构"></a>2、SDK结构</h4><p>  可以直接查看我们的SDK目录，即可大致了解我们SDK的结构。</p>
+<ul>
+<li>最外层包含：配置文件， 鉴权和一些公共的函数</li>
+<li>HTTP 目录主要包含了一些对 http 进行封装的类，这块你可以不用关心。</li>
+<li>Storage 目录主要包含两大块：Bucket 中文件的管理和文件的上传。</li>
+<li><p>Processing 目录主要包含文件的处理，文件处理又包含两个方面：同步处理和异步处理。</p>
+<p>为了帮助您更好的了解和使用我们的sdk，我们还提供了各种使用示例。 如果使用中遇到问题，可以通过Github或者我们的工单进行反馈。下面我们对一些关键点进行简单的介绍，方便您快速入门。</p>
+<h4 id="3、鉴权类"><a href="#3、鉴权类" class="headerlink" title="3、鉴权类"></a>3、鉴权类</h4><p>在使用七牛的SDK的过程中鉴权是很重要的一块，不管是上传鉴权，下载签权， 还是回调的签权。 PHP SDK 中的Auth类封装了所有的鉴权方式。 所以在使用 PHP SDK 时基本都会先对鉴权类进行初始化：</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">require</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Auth</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 用于签名的公钥和私钥 </span></span><br><span class="line">  $accessKey = <span class="string">'Access_Key'</span>;</span><br><span class="line">  $secretKey = <span class="string">'Secret_Key'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 初始化签权对象 </span></span><br><span class="line">  $auth = <span class="keyword">new</span> Auth($accessKey, $secretKey);</span><br><span class="line">````  </span><br><span class="line">初始化好Auth 类后，就可以调用相应的方法了，比如生成私有下载链接方法 privateDownloadUrl，获取上传Token方法 uploadToken，验证回调方法 verifyCallback等。</span><br><span class="line"></span><br><span class="line"><span class="comment">### 上传流程</span></span><br><span class="line">````php</span><br><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">require_once</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;                    <span class="comment">//引入类库文件 建议用composer方式</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 引入鉴权类   </span></span><br><span class="line">     <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Auth</span>;                                                                   <span class="comment">//命名空间                               </span></span><br><span class="line">    <span class="comment">// 引入上传类   </span></span><br><span class="line">     <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Storage</span>\<span class="title">UploadManager</span>;                                  <span class="comment">//命名空间</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 需要填写你的 Access Key 和 Secret Key                             //这里就用到了注册账户后用到的两个秘钥</span></span><br><span class="line">     $accessKey = <span class="string">'Access_Key'</span>;</span><br><span class="line">     $secretKey = <span class="string">'Secret_Key'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建鉴权对象   </span></span><br><span class="line">     $auth = <span class="keyword">new</span> Auth($accessKey, $secretKey);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 要上传的空间   </span></span><br><span class="line">     $bucket = <span class="string">'Bucket_Name'</span>;                                          <span class="comment">//设定的上传空间名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成上传 Token   </span></span><br><span class="line">     $token = $auth-&gt;uploadToken($bucket);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 要上传文件的本地路径   </span></span><br><span class="line">      $filePath = <span class="string">'./php-logo.png'</span>;                                     <span class="comment">//上传时候图片在本地的路径</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 上传到七牛后保存的文件名   </span></span><br><span class="line">      $key = <span class="string">'my-php-logo.png'</span>;                                         <span class="comment">//保存到七牛上面的命名</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化 UploadManager 对象并进行文件的上传   </span></span><br><span class="line">     $uploadMgr = <span class="keyword">new</span> UploadManager();</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 UploadManager 的 putFile 方法进行文件的上传   </span></span><br><span class="line">     <span class="keyword">list</span>($ret, $err) = $uploadMgr-&gt;putFile($token, $key, $filePath);</span><br><span class="line">    <span class="keyword">echo</span> <span class="string">"\n====&gt; putFile result: \n"</span>;</span><br><span class="line">    <span class="keyword">if</span> ($err !== <span class="keyword">null</span>) &#123;</span><br><span class="line">        var_dump($err);                                                 <span class="comment">//返回结果根据需要处理</span></span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        var_dump($ret);                                 </span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<h3 id="文件下载"><a href="#文件下载" class="headerlink" title="文件下载"></a>文件下载</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">    <span class="keyword">require</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 引入鉴权类   </span></span><br><span class="line">      <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Auth</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 需要填写你的 Access Key 和 Secret Key   </span></span><br><span class="line">     $accessKey = <span class="string">'Access_Key'</span>;</span><br><span class="line">     $secretKey = <span class="string">'Secret_Key'</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 构建鉴权对象   </span></span><br><span class="line">     $auth = <span class="keyword">new</span> Auth($accessKey, $secretKey);</span><br><span class="line"></span><br><span class="line">    <span class="comment">//baseUrl构造成私有空间的域名/key的形式   </span></span><br><span class="line">     $baseUrl = <span class="string">'http://domain/key'</span>;                                                  <span class="comment">//空间名+文件名 的格式</span></span><br><span class="line">    $authUrl = $auth-&gt;privateDownloadUrl($baseUrl);                      <span class="comment">//加密处理后再返回</span></span><br><span class="line">    <span class="keyword">echo</span> $authUrl;<span class="meta">?&gt;</span></span><br></pre></td></tr></table></figure>
+<h3 id="删除单个文件"><a href="#删除单个文件" class="headerlink" title="删除单个文件"></a>删除单个文件</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?php</span></span><br><span class="line">  <span class="keyword">require_once</span> <span class="string">'path_to_sdk/vendor/autoload.php'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Auth</span>;</span><br><span class="line">  <span class="keyword">use</span> <span class="title">Qiniu</span>\<span class="title">Storage</span>\<span class="title">BucketManager</span>;</span><br><span class="line"></span><br><span class="line">  $accessKey = <span class="string">'Access_Key'</span>;</span><br><span class="line">  $secretKey = <span class="string">'Secret_Key'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//初始化Auth状态 </span></span><br><span class="line">  $auth = <span class="keyword">new</span> Auth($accessKey, $secretKey);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//初始化BucketManager </span></span><br><span class="line">  $bucketMgr = <span class="keyword">new</span> BucketManager($auth);</span><br><span class="line"></span><br><span class="line">  <span class="comment">//你要测试的空间， 并且这个key在你空间中存在 </span></span><br><span class="line">  $bucket = <span class="string">'Bucket_Name'</span>;</span><br><span class="line">  $key = <span class="string">'php-logo.png'</span>;</span><br><span class="line"></span><br><span class="line">  <span class="comment">//删除$bucket 中的文件 $key </span></span><br><span class="line">  $err = $bucketMgr-&gt;delete($bucket, $key);                       <span class="comment">//空间名  和  未加密的文件名</span></span><br><span class="line">  <span class="keyword">echo</span> <span class="string">"\n====&gt; delete $key : \n"</span>;</span><br><span class="line">  <span class="keyword">if</span> ($err !== <span class="keyword">null</span>) &#123;</span><br><span class="line">      var_dump($err);</span><br><span class="line">  &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      <span class="keyword">echo</span> <span class="string">"Success!"</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p> 还有更多的操作请参考官方文档，地址：<a href="http://developer.qiniu.com/code/v7/sdk/php.html#install" target="_blank" rel="noopener">http://developer.qiniu.com/code/v7/sdk/php.html#install</a></p>
+<h3 id="实际案例（实战项目中的方法封装）"><a href="#实际案例（实战项目中的方法封装）" class="headerlink" title="实际案例（实战项目中的方法封装）"></a>实际案例（实战项目中的方法封装）</h3> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">/七牛云图片上传配置</span><br><span class="line"><span class="keyword">const</span>  ACCESS_KEY = <span class="string">'byJc-8owLt9G5ljXsNYbTsfOCKzQgTV4UTPu3sCG'</span> ;            <span class="comment">//私钥AK</span></span><br><span class="line"><span class="keyword">const</span>  SECRET_KEY = <span class="string">'6ybTxRxyDGndimpVMgK_k-6s1prGIPkGtB0Xolyb'</span> ;            <span class="comment">//私钥SK</span></span><br><span class="line"><span class="keyword">const</span>  QINIU_BUCKET = <span class="string">'op-zbj'</span> ;                                                        <span class="comment">//空间名（对象存储中）</span></span><br><span class="line"><span class="keyword">const</span>  BASE_URL  = <span class="string">'http://ohsllkayi.bkt.clouddn.com'</span> ;                     <span class="comment">//外链默认域名（对象存储-&gt;内容管理）</span></span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 上传图片到七牛云</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $filePath 图片的本地路径</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $fileName 图片名</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> mixed  array</span></span><br><span class="line"><span class="comment">* <span class="doctag">@throws</span> Exception</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">UploadPicToQiNiu</span> <span class="params">($fileName , $filePath)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 初始化签权对象</span></span><br><span class="line">    $auth = <span class="keyword">new</span> Auth(lib_Constant:: ACCESS_KEY , lib_Constant:: SECRET_KEY );</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 生成上传 Token</span></span><br><span class="line">    $token = $auth-&gt; uploadToken (lib_Constant:: QINIU_BUCKET) ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 上传到七牛后保存的文件名</span></span><br><span class="line">    $key = <span class="string">'qiniu_'</span>.md5( $fileName .rand(<span class="number">100</span> , <span class="number">999</span>)) ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 初始化 UploadManager 对象并进行文件的上传</span></span><br><span class="line">    $uploadMgr = <span class="keyword">new</span> UploadManager() ;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 调用 UploadManager 的 putFile 方法进行文件的上传</span></span><br><span class="line">    <span class="keyword">list</span> ( $ret, $err ) = $uploadMgr -&gt; putFile( $token , $key , $filePath) ;</span><br><span class="line">    <span class="keyword">if</span> ($err !== <span class="keyword">null</span>) &#123;</span><br><span class="line">         <span class="keyword">return</span> $err ;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> $ret ;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 从七牛云上获取图片到本地</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $filePath  数据库中的图片地址</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> string</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">downloadPicToQiNiu</span> <span class="params">($filePath )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">// 构建鉴权对象</span></span><br><span class="line">    $auth = <span class="keyword">new</span> Auth(lib_Constant:: ACCESS_KEY , lib_Constant:: SECRET_KEY );</span><br><span class="line">    <span class="comment">//baseUrl构造成私有空间的域名/key的形式</span></span><br><span class="line">    $baseUrl = lib_Constant:: BASE_URL. <span class="string">'/'</span> .$filePath ;</span><br><span class="line">    $authUrl = $auth-&gt; privateDownloadUrl ($baseUrl ) ;</span><br><span class="line">    <span class="keyword">return</span> $authUrl;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 批量获取七牛云上的图片</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $filePathArray</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> array|bool</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">batchDownloadPicToQiNiu</span> <span class="params">( $filePathArray)</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> ( <span class="keyword">empty</span>( $filePathArray ))&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 构建鉴权对象</span></span><br><span class="line">    $returnFullImagesPath = [] ;</span><br><span class="line">    $auth = <span class="keyword">new</span> Auth(lib_Constant:: ACCESS_KEY , lib_Constant:: SECRET_KEY );</span><br><span class="line">    <span class="keyword">foreach</span> ($filePathArray <span class="keyword">as</span> $filePath)&#123;</span><br><span class="line">        <span class="comment">//baseUrl构造成私有空间的域名/key的形式</span></span><br><span class="line">        $baseUrl = lib_Constant:: BASE_URL. <span class="string">'/'</span> .$filePath ;</span><br><span class="line">        $returnFullImagesPath [] = $auth -&gt;privateDownloadUrl ( $baseUrl) ;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> $returnFullImagesPath ;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+ <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 从七牛云上删除图片</span></span><br><span class="line"><span class="comment">* <span class="doctag">@param</span> $filePath</span></span><br><span class="line"><span class="comment">* <span class="doctag">@return</span> mixed</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">deleteToQiNiu</span> <span class="params">($filePath )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//初始化Auth状态</span></span><br><span class="line">    $auth = <span class="keyword">new</span> Auth(lib_Constant:: ACCESS_KEY , lib_Constant:: SECRET_KEY );</span><br><span class="line">    <span class="comment">//初始化BucketManager</span></span><br><span class="line">    $bucketMgr = <span class="keyword">new</span> BucketManager( $auth );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//删除$bucket 中的文件 $key</span></span><br><span class="line">    $err = $bucketMgr -&gt; delete(lib_Constant:: QINIU_BUCKET ,$filePath ) ;</span><br><span class="line">   <span class="comment">// echo "\n====&gt; delete $key : \n";</span></span><br><span class="line">    <span class="keyword">if</span> ( $err !== <span class="keyword">null</span> ) &#123;</span><br><span class="line">        <span class="keyword">return</span> fasle ;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-222806@2x.png" alt="Xiang wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>Donate</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213742@2x.png" alt="Xiang WeChat Pay"/>
+        <p>WeChat Pay</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213713@2x.png" alt="Xiang Alipay"/>
+        <p>Alipay</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>Post author:</strong>
+    Xiang
+  </li>
+  <li class="post-copyright-link">
+    <strong>Post link:</strong>
+    <a href="http://xiexiangnow.github.io/2018/02/02/七牛云图床API接口指南/" title="七牛云图床API接口指南">http://xiexiangnow.github.io/2018/02/02/七牛云图床API接口指南/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>Copyright Notice: </strong>
+    All articles in this blog are licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> unless stating additionally.
+  </li>
+</ul>
+
+      </div>
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/php/" rel="tag"># php</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/02/PHP中静态方法-static-与非静态方法的使用及区别/" rel="next" title="PHP中静态方法(static)与非静态方法的使用及区别">
+                <i class="fa fa-chevron-left"></i> PHP中静态方法(static)与非静态方法的使用及区别
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/" rel="prev" title="两个重要函数（获取无限极菜单+批量排序）">
+                两个重要函数（获取无限极菜单+批量排序） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概要
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg"
+                alt="Xiang" />
+            
+              <p class="site-author-name" itemprop="name">Xiang</p>
+              <p class="site-description motion-element" itemprop="description">每一步做到极致 <br> 下一步美好自然呈现</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">13</span>
+                  <span class="site-state-item-name">文章</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">Kategorien</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-name">Tags</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          <div class="links-of-author motion-element">
+            
+              
+                <span class="links-of-author-item">
+                  <a href="https://github.com/xiexiangnow" target="_blank" title="GitHub">
+                    
+                      <i class="fa fa-fw fa-github"></i>GitHub</a>
+                </span>
+              
+                <span class="links-of-author-item">
+                  <a href="http://weibo.com/6272025793/profile?rightmod=1&wvr=6&mod=personinfo" target="_blank" title="Weibo">
+                    
+                      <i class="fa fa-fw fa-weibo"></i>Weibo</a>
+                </span>
+              
+            
+          </div>
+
+          
+          
+
+          
+          
+            <div class="links-of-blogroll motion-element links-of-blogroll-inline">
+              <div class="links-of-blogroll-title">
+                <i class="fa  fa-fw fa-link"></i>
+                Friends
+              </div>
+              <ul class="links-of-blogroll-list">
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://haofly.net" title="精通各种语言全栈攻城狮豪豪" target="_blank">精通各种语言全栈攻城狮豪豪</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://tanjiangfu.github.io" title="精通运维兼开发攻城狮贱贱" target="_blank">精通运维兼开发攻城狮贱贱</a>
+                  </li>
+                
+                  <li class="links-of-blogroll-item">
+                    <a href="http://lqstone.github.io" title="精通前端开发攻城狮巧巧" target="_blank">精通前端开发攻城狮巧巧</a>
+                  </li>
+                
+              </ul>
+            </div>
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#登录到七牛云官网注册一个账号"><span class="nav-number">1.</span> <span class="nav-text">登录到七牛云官网注册一个账号</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获取对应的七牛云秘钥"><span class="nav-number">2.</span> <span class="nav-text">获取对应的七牛云秘钥</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#建立存储空间"><span class="nav-number">3.</span> <span class="nav-text">建立存储空间</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#基本用法"><span class="nav-number">4.</span> <span class="nav-text">基本用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、引入SDK"><span class="nav-number">4.1.</span> <span class="nav-text">1、引入SDK</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、SDK结构"><span class="nav-number">4.2.</span> <span class="nav-text">2、SDK结构</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、鉴权类"><span class="nav-number">4.3.</span> <span class="nav-text">3、鉴权类</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#文件下载"><span class="nav-number">5.</span> <span class="nav-text">文件下载</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#删除单个文件"><span class="nav-number">6.</span> <span class="nav-text">删除单个文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实际案例（实战项目中的方法封装）"><span class="nav-number">7.</span> <span class="nav-text">实际案例（实战项目中的方法封装）</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Erstellt mit  <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.3</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.3"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.3"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.3"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.3"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.3"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+  
+  
+  
+  <link rel="stylesheet" href="/lib/algolia-instant-search/instantsearch.min.css">
+
+  
+  
+  <script src="/lib/algolia-instant-search/instantsearch.min.js"></script>
+  
+
+  <script src="/js/src/algolia-search.js?v=5.1.3"></script>
+
+
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
