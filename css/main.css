@@ -1960,7 +1960,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #ffff0e;
+  background: #71abff;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -2946,7 +2946,7 @@ pre .javascript .function {
   box-sizing: border-box;
   padding: 40px;
   width: 700px;
-  background: #fff;
+  background: none;
   min-height: 700px;
   box-shadow: initial;
   border-radius: initial;
@@ -2964,6 +2964,7 @@ pre .javascript .function {
     padding: 20px;
     min-height: auto;
     border-radius: initial;
+    background: #fff;
   }
 }
 .sidebar {
@@ -3266,5 +3267,470 @@ pre .javascript .function {
 @media (max-width: 767px) {
   .post-body {
     text-align: justify;
+  }
+}
+.post-body p a {
+  color: #0593d3;
+  border-bottom: none;
+}
+.post-body p a:hover {
+  color: #0477ab;
+  text-decoration: underline;
+}
+.link-blue {
+  color: #f36;
+}
+.link-blue:hover {
+  color: #f00;
+}
+code {
+  color: #fff;
+  background: #333;
+}
+.posts-expand .post-body img {
+  margin: 0 auto;
+}
+a#download {
+  display: inline-block;
+  padding: 0 10px;
+  color: #000;
+  background: transparent;
+  border: 2px solid #000;
+  border-radius: 2px;
+  transition: all 0.5s ease;
+  font-weight: bold;
+}
+a#download:hover {
+  background: #000;
+  color: #fff;
+}
+.post-more-link .btn {
+  position: relative;
+  border: 2px solid #000;
+  border-radius: 2px;
+  padding: 0 10px;
+  font-weight: bold;
+  background: transparent;
+  transition: all 0.5s ease;
+}
+.post-more-link .btn:hover {
+  background: #000;
+  color: #eee;
+}
+span#inline-yellow {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #f0ad4e;
+}
+span#inline-black {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #000;
+}
+span#inline-green {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #5cb85c;
+}
+span#inline-blue {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #2780e3;
+}
+span#inline-purple {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #9954bb;
+}
+span#inline-red {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 80%;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0;
+  background-color: #df3e3e;
+}
+p#div-border-left-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #df3e3e;
+}
+p#div-border-left-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #f0ad4e;
+}
+p#div-border-left-green {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #5cb85c;
+}
+p#div-border-left-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #2780e3;
+}
+p#div-border-left-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-left-width: 5px;
+  border-radius: 3px;
+  border-left-color: #9954bb;
+}
+p#div-border-right-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #df3e3e;
+}
+p#div-border-right-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #f0ad4e;
+}
+p#div-border-right-green {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #5cb85c;
+}
+p#div-border-right-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #2780e3;
+}
+p#div-border-right-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-right-width: 5px;
+  border-radius: 3px;
+  border-right-color: #9954bb;
+}
+p#div-border-top-red {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #df3e3e;
+}
+p#div-border-top-yellow {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #f0ad4e;
+}
+p#div-border-top-green {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #5cb85c;
+}
+p#div-border-top-blue {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #2780e3;
+}
+p#div-border-top-purple {
+  display: block;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-top-width: 5px;
+  border-radius: 3px;
+  border-top-color: #9954bb;
+}
+span#yu-1 {
+  display: inline;
+  position: relative;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  font-size: 110%;
+  cursor: pointer;
+}
+span#yu-1:hover {
+  background-color: #000;
+  color: #fff;
+  animation: animate-yu-1 3s ease-in;
+}
+span#yu-2 {
+  display: inline;
+  position: relative;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+  font-size: 130%;
+}
+@-moz-keyframes animate-yu-1 {
+  0% {
+    left: -10px;
+    top: 0px;
+  }
+  10% {
+    left: 10px;
+    top: 0px;
+  }
+  20% {
+    left: -8px;
+    top: 0px;
+  }
+  30% {
+    left: 8px;
+    top: 0px;
+  }
+  40% {
+    left: -5px;
+    top: 0px;
+  }
+  50% {
+    left: 5px;
+    top: 0px;
+  }
+  60% {
+    left: -3px;
+    top: 0px;
+  }
+  70% {
+    left: 3px;
+    top: 0px;
+  }
+  80% {
+    left: -1px;
+    top: 0px;
+  }
+  90% {
+    left: 1px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@-webkit-keyframes animate-yu-1 {
+  0% {
+    left: -10px;
+    top: 0px;
+  }
+  10% {
+    left: 10px;
+    top: 0px;
+  }
+  20% {
+    left: -8px;
+    top: 0px;
+  }
+  30% {
+    left: 8px;
+    top: 0px;
+  }
+  40% {
+    left: -5px;
+    top: 0px;
+  }
+  50% {
+    left: 5px;
+    top: 0px;
+  }
+  60% {
+    left: -3px;
+    top: 0px;
+  }
+  70% {
+    left: 3px;
+    top: 0px;
+  }
+  80% {
+    left: -1px;
+    top: 0px;
+  }
+  90% {
+    left: 1px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@-o-keyframes animate-yu-1 {
+  0% {
+    left: -10px;
+    top: 0px;
+  }
+  10% {
+    left: 10px;
+    top: 0px;
+  }
+  20% {
+    left: -8px;
+    top: 0px;
+  }
+  30% {
+    left: 8px;
+    top: 0px;
+  }
+  40% {
+    left: -5px;
+    top: 0px;
+  }
+  50% {
+    left: 5px;
+    top: 0px;
+  }
+  60% {
+    left: -3px;
+    top: 0px;
+  }
+  70% {
+    left: 3px;
+    top: 0px;
+  }
+  80% {
+    left: -1px;
+    top: 0px;
+  }
+  90% {
+    left: 1px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
+  }
+}
+@keyframes animate-yu-1 {
+  0% {
+    left: -10px;
+    top: 0px;
+  }
+  10% {
+    left: 10px;
+    top: 0px;
+  }
+  20% {
+    left: -8px;
+    top: 0px;
+  }
+  30% {
+    left: 8px;
+    top: 0px;
+  }
+  40% {
+    left: -5px;
+    top: 0px;
+  }
+  50% {
+    left: 5px;
+    top: 0px;
+  }
+  60% {
+    left: -3px;
+    top: 0px;
+  }
+  70% {
+    left: 3px;
+    top: 0px;
+  }
+  80% {
+    left: -1px;
+    top: 0px;
+  }
+  90% {
+    left: 1px;
+    top: 0px;
+  }
+  100% {
+    left: 0px;
+    top: 0px;
   }
 }
