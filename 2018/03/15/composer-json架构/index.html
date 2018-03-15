@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content=",," />
+  <meta name="keywords" content="composer," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="谢翔 / XieXiangPHP开发工程师 / PHP Development Engineer  &amp;nbsp;&amp;nbsp;性别:男  &amp;nbsp;&amp;nbsp;出生:1989-09-15  &amp;nbsp;&amp;nbsp;Email:524414842@qq.com  &amp;">
-<meta name="keywords" content="简历">
-<meta property="og:type" content="website">
-<meta property="og:title" content="我的简历">
-<meta property="og:url" content="http://xiexiangnow.github.io/resume/index.html">
+<meta name="description" content="Root包“root 包”是指由 composer.json 定义的在你项目根目录的包。这是 composer.json 定义你项目所需的主要条件。（简单的说，你自己的项目就是一个 root 包）某些字段仅适用于“root 包”上下文。config 字段就是其中一个例子。只有“root 包”可以定义。在依赖包中定义的 ">
+<meta name="keywords" content="composer">
+<meta property="og:type" content="article">
+<meta property="og:title" content="composer.json架构">
+<meta property="og:url" content="http://xiexiangnow.github.io/2018/03/15/composer-json架构/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="谢翔 / XieXiangPHP开发工程师 / PHP Development Engineer  &amp;nbsp;&amp;nbsp;性别:男  &amp;nbsp;&amp;nbsp;出生:1989-09-15  &amp;nbsp;&amp;nbsp;Email:524414842@qq.com  &amp;nbsp;&amp;nbsp;Tel:18502368717  &amp;nbsp;&amp;nbsp;Wechat:18502368717  &amp;nbsp;&amp;n">
+<meta property="og:description" content="Root包“root 包”是指由 composer.json 定义的在你项目根目录的包。这是 composer.json 定义你项目所需的主要条件。（简单的说，你自己的项目就是一个 root 包）某些字段仅适用于“root 包”上下文。config 字段就是其中一个例子。只有“root 包”可以定义。在依赖包中定义的 config 字段将被忽略，这使得 config 字段只有“root 包”可用（">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-03-09T06:42:16.233Z">
+<meta property="og:updated_time" content="2018-03-15T05:41:35.308Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="我的简历">
-<meta name="twitter:description" content="谢翔 / XieXiangPHP开发工程师 / PHP Development Engineer  &amp;nbsp;&amp;nbsp;性别:男  &amp;nbsp;&amp;nbsp;出生:1989-09-15  &amp;nbsp;&amp;nbsp;Email:524414842@qq.com  &amp;nbsp;&amp;nbsp;Tel:18502368717  &amp;nbsp;&amp;nbsp;Wechat:18502368717  &amp;nbsp;&amp;n">
+<meta name="twitter:title" content="composer.json架构">
+<meta name="twitter:description" content="Root包“root 包”是指由 composer.json 定义的在你项目根目录的包。这是 composer.json 定义你项目所需的主要条件。（简单的说，你自己的项目就是一个 root 包）某些字段仅适用于“root 包”上下文。config 字段就是其中一个例子。只有“root 包”可以定义。在依赖包中定义的 config 字段将被忽略，这使得 config 字段只有“root 包”可用（">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://xiexiangnow.github.io/resume/"/>
+  <link rel="canonical" href="http://xiexiangnow.github.io/2018/03/15/composer-json架构/"/>
 
 
 
 
 
-  <title>我的简历 | Xiang's Blog</title>
+  <title>composer.json架构 | Xiang's Blog</title>
   
 
 
@@ -289,90 +289,304 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/03/15/composer-json架构/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="谢♪翔">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oymkn4m7b.bkt.clouddn.com/WechatIMG5.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Xiang's Blog">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">我的简历</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h2 id="谢翔-XieXiang"><a href="#谢翔-XieXiang" class="headerlink" title="谢翔 / XieXiang"></a>谢翔 / XieXiang</h2><h2 id="PHP开发工程师-PHP-Development-Engineer"><a href="#PHP开发工程师-PHP-Development-Engineer" class="headerlink" title="PHP开发工程师 / PHP Development Engineer"></a>PHP开发工程师 / PHP Development Engineer</h2><p>  &nbsp;&nbsp;性别:男<br>  &nbsp;&nbsp;出生:1989-09-15<br>  &nbsp;&nbsp;Email:524414842@qq.com<br>  &nbsp;&nbsp;Tel:18502368717<br>  &nbsp;&nbsp;Wechat:18502368717<br>  &nbsp;&nbsp;Github:<a href="https://www.github.com/xiexiangnow" target="_blank" rel="noopener">github.com/xiexiangnow</a><br>  &nbsp;&nbsp;个人站点:<a href="http://www.xiang007.com" target="_blank" rel="noopener">www.xiang007.com</a></p>
-  <p style="border-bottom:1px solid #ccc;width:100%"></p>
-
-<h3 id="关于我"><a href="#关于我" class="headerlink" title="关于我"></a>关于我</h3><p>&nbsp;&nbsp;2年邮政会计<br>&nbsp;&nbsp;3年+php开发</p>
- <p style="border-bottom:1px solid #ccc;width:100%"></p>
-
-<h3 id="我的技能"><a href="#我的技能" class="headerlink" title="我的技能"></a>我的技能</h3><ul>
-<li>熟练使用Laravel、SlightPHP、TP等主流php框架，理解面向对象编程设计理念；</li>
-<li>熟练使用Html、Css、JavaScript、Ajax、Vue等前端技术；</li>
-<li>熟练使用Kafaka、Docker、Memcache、Redis、Composer、Restful等技术和规范；</li>
-<li>熟练使用Git等代码版本管理工具；</li>
-<li>熟练使用MySql数据库；</li>
-<li>熟悉LNMP环境，熟悉Linux环境下的基本操作；</li>
-<li>熟悉微信公众号开发；</li>
-<li>熟练前后端分离开发模式，api数据接口开发工作；</li>
-<li><p>积极主动、团队合作精神、良好的代码习惯、责任心强；</p>
-<p style="border-bottom:1px solid #ccc;width:100%"></p>
-
-</li>
-</ul>
-<h3 id="工作经历"><a href="#工作经历" class="headerlink" title="工作经历"></a>工作经历</h3><h4 id="重庆猪八戒网络有限公司-2016-2-–-至今"><a href="#重庆猪八戒网络有限公司-2016-2-–-至今" class="headerlink" title="重庆猪八戒网络有限公司  2016.2 – 至今"></a>重庆猪八戒网络有限公司  2016.2 – 至今</h4><p> <code>运维平台[PC]</code></p>
-<ul>
-<li>项目简介：运维部门板块体系改造，逐步实现运维自动化管理。</li>
-<li>功能板块：接入公司所有工具平台入口进行账号体系改造、权限分配管理，管理公司运维板块固定资产，运维部门公告板管理，缓存、队列的清理，报表中心，所有用户的操作日志记录等。</li>
-<li>我的职责：平台第一开发人，负责前后端开发，数据库设计、采用公司框架SlightPHP对本项目进行架构，主要负责账号体系改造、权限分配（包含应用权限）、固定资产管理、日志管理等工作。</li>
-<li>我的收获：熟练使用了SlightPHP开发框架，对于公司内部的开发模式有一定的熟悉，适应公司规范开发模式，熟练使用了Git版本控制工具。</li>
-</ul>
-<p> <code>资源管理中心[PC]</code></p>
-<ul>
-<li>项目简介：管理公司虚拟机、物理机及容器，实现可视化、直观的管理及维护主机。</li>
-<li>功能板块：项目管理，虚拟机、物理机、容器管理，通过openstack、k8s等实例管理工具提取实例内容，同时开发对实例的关机、开机、重启、操作日志记录、服务校验、快速查询等功能。</li>
-<li>我的职责：数据库设计、架构逻辑梳理，实现全局搜索实例管理，可视化界面功能，部门协调、资源获取。</li>
-<li>我的收获：熟悉Docker对于开发者的使用，熟悉使用Laravel框架，对于Memcache、Redis、Kafka、Composer等技术的熟悉，同时熟悉Restful等技术规范。</li>
-</ul>
-<p> <code>八戒合伙人[WX]</code></p>
-<ul>
-<li>项目简介：通过八戒合伙人这个项目推行自身类目服务，同时也向主站类目引流，实现服务商为雇主服务的小平台服务。</li>
-<li>功能板块：打通主站账户体系，通过做任务、分享资源、发展小伙伴等动作实现积分和猪币结合的双向收益，最后完成用户提现，同时还有对服务、套餐的封装，实现适用于服务商的销售模式，上下级关系的分佣体系等功能。</li>
-<li>我的职责：平台唯一中间层负责人，通过php衔接前端与java的通讯，完成项目的网关层及控制层所做的东西，java提供服务，php层则进行逻辑处理、数据分发、页面渲染，传输到前端层实现交互。</li>
-<li>我的收获：熟悉前端开发工作，初步了解vue.js，中间层的开发了解了前后端的交互与通讯，同时深入了解微信公众号开发的特定功能，熟悉公司对于业务项目的架构模式。</li>
-</ul>
-<h4 id="重庆博优科技网络有限公司-2014-12-–-2016-2"><a href="#重庆博优科技网络有限公司-2014-12-–-2016-2" class="headerlink" title="重庆博优科技网络有限公司 2014.12 – 2016.2"></a>重庆博优科技网络有限公司 2014.12 – 2016.2</h4><p> <code>餐饮管理后台[PC]</code></p>
-<ul>
-<li>项目介绍：通过后台对餐饮服务管理系统实现可视化管理，包含对点餐、订单、报表的输出。</li>
-<li>功能板块：菜品类目的管理，账号体系管理，权限体系管理，订单系统，报表系统，公告板块。</li>
-<li>我的职责：项目第二开发负责人，主要负责权限体系管理，报表板块的输出。</li>
-<li>我的收获：熟练使用TP框架，对Memcache、Ajax等的使用能灵活运用，了解大型项目的代码规范的重要性，对于数据库的设计、后期项目的迭代的规划有一定的了解。</li>
-</ul>
-<p> <code>50个企业站点[PC]</code></p>
-<ul>
-<li>我的职责：主要有对企业站点的后台开发，同时研究前端对于模板运用的适用性。</li>
-<li><p>我的收获：对于php基础知识加以巩固，熟练php数据处理、类型转换、面向对象的理解，理解MVC框架开发模式。</p>
-<p style="border-bottom:1px solid #ccc;width:100%"></p>
-
-</li>
-</ul>
-<h3 id="教育经历"><a href="#教育经历" class="headerlink" title="教育经历"></a>教育经历</h3><p>&nbsp;&nbsp; 重庆邮电大学<br>&nbsp;&nbsp; 电子商务 （2008-2011）</p>
-
+          <h1 class="post-title" itemprop="name headline">composer.json架构</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-03-15T10:34:24+08:00">
+                2018-03-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/composer/" itemprop="url" rel="index">
+                    <span itemprop="name">composer</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <h3 id="Root包"><a href="#Root包" class="headerlink" title="Root包"></a>Root包</h3><p>“root 包”是指由 <code>composer.json</code> 定义的在你项目根目录的包。这是 <code>composer.json</code> 定义你项目所需的主要条件。（简单的说，你自己的项目就是一个 root 包）<br>某些字段仅适用于“root 包”上下文。<code>config</code> 字段就是其中一个例子。只有“root 包”可以定义。在依赖包中定义的 <code>config</code> 字段将被忽略，这使得 <code>config</code> 字段只有“root 包”可用（root-only）<br>如果你克隆了其中的一个依赖包，直接在其上开始工作，那么它就变成了“root 包”。与作为他人的依赖包时使用相同的 <code>composer.json</code> 文件，但上下文发生了变化。</p>
+<h3 id="属性"><a href="#属性" class="headerlink" title="属性"></a>属性</h3><h4 id="包名-name"><a href="#包名-name" class="headerlink" title="包名 name"></a>包名 <code>name</code></h4><p>包的名称，它包括供应商名称和项目名称，使用<code>/</code>分隔。<br>eg:dept-jccp/zbj_agent</p>
+<h4 id="描述-description"><a href="#描述-description" class="headerlink" title="描述 description"></a>描述 <code>description</code></h4><p>包的描述，对于需要发布的包（库），这个是必填的。</p>
+<h4 id="版本-version"><a href="#版本-version" class="headerlink" title="版本 version"></a>版本 <code>version</code></h4><p><code>version</code>不是必须的，可以忽略。<br>通常，我们能够从 VCS (git, svn, hg) 的信息推断出包的版本号，在这种情况下，我们建议忽略 version。</p>
+<h4 id="安装类型-type"><a href="#安装类型-type" class="headerlink" title="安装类型 type"></a>安装类型 <code>type</code></h4><p>包的安装类型，默认为 <code>library</code>。<br>包的安装类型，用来定义安装逻辑。如果你有一个包需要一个特殊的逻辑，你可以设定一个自定义的类型。这可以是一个 <code>symfony-bundle</code>，一个 <code>wordpress-plugin</code> 或者一个 <code>typo3-module</code>。这些类型都将是具体到某一个项目，而对应的项目将要提供一种能够安装该类型包的安装程序。</p>
+<p><code>composer</code>原生支持以下4种类型：</p>
+<ul>
+<li>library: 这是默认类型，它会简单的将文件复制到<code>vendor</code>目录。</li>
+<li>project: 这表示当前包是一个项目，而不是一个库。例：框架应用程序 Symfony standard edition，内容管理系统 SilverStripe installer 或者完全成熟的分布式应用程序。使用 IDE 创建一个新的工作区时，这可以为其提供项目列表的初始化。</li>
+<li>metapackage: 当一个空的包，包含依赖并且需要触发依赖的安装，这将不会对系统写入额外的文件。因此这种安装类型并不需要一个 dist 或 source。</li>
+<li>composer-plugin: 一个安装类型为 composer-plugin 的包，它有一个自定义安装类型，可以为其它包提供一个 installler。详细请查看 自定义安装类型。</li>
+</ul>
+<p>仅在你需要一个自定义的安装逻辑时才使用它。建议忽略这个属性，采用默认的 library。</p>
+<h4 id="关键词-keyword"><a href="#关键词-keyword" class="headerlink" title="关键词 keyword"></a>关键词 <code>keyword</code></h4><p>该包相关的关键词的数组。这些可用于搜索和过滤。</p>
+<h4 id="项目主页-homepage"><a href="#项目主页-homepage" class="headerlink" title="项目主页 homepage"></a>项目主页 <code>homepage</code></h4><p>该项目网站的 URL 地址。可选。</p>
+<h4 id="版本发布时间-time"><a href="#版本发布时间-time" class="headerlink" title="版本发布时间 time"></a>版本发布时间 <code>time</code></h4><p>版本发布时间。<br>必须符合 YYYY-MM-DD 或 YYYY-MM-DD HH:MM:SS 格式。<br>可选。</p>
+<h4 id="许可协议-license"><a href="#许可协议-license" class="headerlink" title="许可协议 license"></a>许可协议 <code>license</code></h4><p>包的许可协议，它可以是一个字符串或者字符串数组。<br>最常见的许可协议的推荐写法（按字母排序）：</p>
+<ul>
+<li>Apache-2.0</li>
+<li>BSD-2-Clause</li>
+<li>BSD-3-Clause</li>
+<li>BSD-4-Clause</li>
+<li>GPL-2.0</li>
+<li>GPL-2.0+</li>
+<li>GPL-3.0</li>
+<li>GPL-3.0+</li>
+<li>LGPL-2.1</li>
+<li>LGPL-2.1+</li>
+<li>LGPL-3.0</li>
+<li>LGPL-3.0+</li>
+<li>MIT<br>可选。</li>
+</ul>
+<p>对于闭源软件，你必须使用 “proprietary” 协议标识符。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"license"</span>: <span class="string">"MIT"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>对于一个包，当允许在多个许可协议间进行选择时（”disjunctive license”），这些协议标识符可以被指定为数组。<br>多协议的一个例：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"license"</span>: [</span><br><span class="line">       <span class="string">"LGPL-2.1"</span>,</span><br><span class="line">       <span class="string">"GPL-3.0+"</span></span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>另外它们也可以由 “or” 分隔，并写在括号中：<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"license"</span>: <span class="string">"(LGPL-2.1 or GPL-3.0+)"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>同样，当有多个许可协议需要结合使用时（”conjunctive license”），它们应该被 “and” 分隔，并写在括号中。</p>
+<h4 id="作者-authors"><a href="#作者-authors" class="headerlink" title="作者 authors"></a>作者 <code>authors</code></h4><p>包的作者。这是一个对象数组。<br>这个对象必须包含以下属性：</p>
+<ul>
+<li>name: 作者的姓名，通常使用真名。</li>
+<li>email: 作者的 email 地址。</li>
+<li>homepage: 作者主页的 URL 地址。</li>
+<li>role: 该作者在此项目中担任的角色（例：开发人员 或 翻译）。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"authors"</span>: [</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Nils Adermann"</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"naderman@naderman.de"</span>,</span><br><span class="line">            <span class="string">"homepage"</span>: <span class="string">"http://www.naderman.de"</span>,</span><br><span class="line">            <span class="string">"role"</span>: <span class="string">"Developer"</span></span><br><span class="line">        &#125;,</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="string">"name"</span>: <span class="string">"Jordi Boggiano"</span>,</span><br><span class="line">            <span class="string">"email"</span>: <span class="string">"j.boggiano@seld.be"</span>,</span><br><span class="line">            <span class="string">"homepage"</span>: <span class="string">"http://seld.be"</span>,</span><br><span class="line">            <span class="string">"role"</span>: <span class="string">"Developer"</span></span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>可选，但强烈建议提供此内容。</p>
+<h4 id="支持-support"><a href="#支持-support" class="headerlink" title="支持 support"></a>支持 <code>support</code></h4><p>取项目支持的向相关信息对象。<br>这个对象必须包含以下属性：</p>
+<ul>
+<li>email: 项目支持 email 地址。</li>
+<li>issues: 跟踪问题的 URL 地址。</li>
+<li>forum: 论坛地址。</li>
+<li>wiki: Wiki 地址。</li>
+<li>irc: IRC 聊天频道地址，类似于 irc://server/channel。</li>
+<li>source: 网址浏览或下载源。</li>
+</ul>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"support"</span>: &#123;</span><br><span class="line">        <span class="string">"email"</span>: <span class="string">"support@example.org"</span>,</span><br><span class="line">        <span class="string">"irc"</span>: <span class="string">"irc://irc.freenode.org/composer"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4 id="Package-links"><a href="#Package-links" class="headerlink" title="Package links"></a>Package links</h4><p>下面提到的所有对象，都应该是 包名 到 版本 的映射对象。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"require"</span>: &#123;</span><br><span class="line">        <span class="string">"monolog/monolog"</span>: <span class="string">"1.0.*"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>所有的这些都是可选的。</p>
+<h4 id="suggest"><a href="#suggest" class="headerlink" title="suggest"></a>suggest</h4><p>建议安装的包，它们增强或能够与当前包良好的工作。这些只是信息，并显示在依赖包安装完成之后，给你的用户一个建议，他们可以添加更多的包。</p>
+<p>格式如下，版本约束变成了描述信息。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"suggest"</span>: &#123;</span><br><span class="line">        <span class="string">"monolog/monolog"</span>: <span class="string">"Allows more advanced logging of the application flow"</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h4 id="autoload"><a href="#autoload" class="headerlink" title="autoload"></a>autoload</h4><p>PHP autoloader 的自动加载映射。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">"autoload"</span>: &#123;</span><br><span class="line">        <span class="string">"psr-4"</span>: &#123;</span><br><span class="line">            <span class="string">"Monolog\\"</span>: <span class="string">"src/"</span>,</span><br><span class="line">            <span class="string">"Vendor\\Namespace\\"</span>: <span class="string">""</span></span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="推荐"><a href="#推荐" class="headerlink" title="推荐"></a>推荐</h3><p>推荐一些常用的依赖：</p>
+<ul>
+<li>predis/predis</li>
+<li>nesbot/carbon</li>
+<li>react/http-client</li>
+<li>itsgoingd/clockwork</li>
+<li>codeception/verify</li>
+<li>qiniu/php-sdk</li>
+<li>dingo/api</li>
+<li>urmaul/httpclient</li>
+<li>nmred/kafka-php</li>
+<li>ramsey/uuid</li>
+<li>spatie/laravel-pjax</li>
+<li>douyasi/laravel-editor-md</li>
+</ul>
+
       
     </div>
     
     
     
+
+    
+      <div>
+        <div id="wechat_subscriber" style="display: block; padding: 10px 0; margin: 20px auto; width: 100%; text-align: center">
+    <img id="wechat_subscriber_qcode" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-222806@2x.png" alt="谢♪翔 wechat" style="width: 200px; max-width: 100%;"/>
+    <div></div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213742@2x.png" alt="谢♪翔 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="http://oymkn4m7b.bkt.clouddn.com/WX20171101-213713@2x.png" alt="谢♪翔 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    谢♪翔
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://xiexiangnow.github.io/2018/03/15/composer-json架构/" title="composer.json架构">http://xiexiangnow.github.io/2018/03/15/composer-json架构/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/composer/" rel="tag"># composer</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/02/05/为Hexo-Next主题添加哈林摇特效/" rel="next" title="为Hexo Next主题添加哈林摇特效">
+                <i class="fa fa-chevron-left"></i> 为Hexo Next主题添加哈林摇特效
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -827,7 +1041,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#谢翔-XieXiang"><span class="nav-number">1.</span> <span class="nav-text">谢翔 / XieXiang</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#PHP开发工程师-PHP-Development-Engineer"><span class="nav-number">2.</span> <span class="nav-text">PHP开发工程师 / PHP Development Engineer</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#关于我"><span class="nav-number">2.1.</span> <span class="nav-text">关于我</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#我的技能"><span class="nav-number">2.2.</span> <span class="nav-text">我的技能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#工作经历"><span class="nav-number">2.3.</span> <span class="nav-text">工作经历</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#重庆猪八戒网络有限公司-2016-2-–-至今"><span class="nav-number">2.3.1.</span> <span class="nav-text">重庆猪八戒网络有限公司  2016.2 – 至今</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#重庆博优科技网络有限公司-2014-12-–-2016-2"><span class="nav-number">2.3.2.</span> <span class="nav-text">重庆博优科技网络有限公司 2014.12 – 2016.2</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#教育经历"><span class="nav-number">2.4.</span> <span class="nav-text">教育经历</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Root包"><span class="nav-number">1.</span> <span class="nav-text">Root包</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#属性"><span class="nav-number">2.</span> <span class="nav-text">属性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#包名-name"><span class="nav-number">2.1.</span> <span class="nav-text">包名 name</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#描述-description"><span class="nav-number">2.2.</span> <span class="nav-text">描述 description</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本-version"><span class="nav-number">2.3.</span> <span class="nav-text">版本 version</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#安装类型-type"><span class="nav-number">2.4.</span> <span class="nav-text">安装类型 type</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#关键词-keyword"><span class="nav-number">2.5.</span> <span class="nav-text">关键词 keyword</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#项目主页-homepage"><span class="nav-number">2.6.</span> <span class="nav-text">项目主页 homepage</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#版本发布时间-time"><span class="nav-number">2.7.</span> <span class="nav-text">版本发布时间 time</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#许可协议-license"><span class="nav-number">2.8.</span> <span class="nav-text">许可协议 license</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#作者-authors"><span class="nav-number">2.9.</span> <span class="nav-text">作者 authors</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#支持-support"><span class="nav-number">2.10.</span> <span class="nav-text">支持 support</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Package-links"><span class="nav-number">2.11.</span> <span class="nav-text">Package links</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#suggest"><span class="nav-number">2.12.</span> <span class="nav-text">suggest</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#autoload"><span class="nav-number">2.13.</span> <span class="nav-text">autoload</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#推荐"><span class="nav-number">3.</span> <span class="nav-text">推荐</span></a></li></ol></div>
             
 
           </div>
