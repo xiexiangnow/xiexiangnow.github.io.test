@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux下docker配置加速器]]></title>
+    <url>%2F2018%2F06%2F20%2FLinux%E4%B8%8Bdocker%E9%85%8D%E7%BD%AE%E5%8A%A0%E9%80%9F%E5%99%A8%2F</url>
+    <content type="text"><![CDATA[直接下载Docker镜像时，由于种种原因，经常下载失败，即使连接成功也是很慢,目前我知道可以提升速度的办法：DaoCloud 提供Docker Hub Mirror服务,用户可以进入Docker Hub Mirror注册入口注册（https://account.daocloud.io/signin）。在进入控制台页面后直接点击 启动你的加速器后，您即可得到一个Mirror的地址，将该地址配置在Docker Daemon的启动脚本中，重启Docker Daemon即可使得Docker Hub Mirror配置生效。 注册登录之后，点击加速器： 然后会得到一个Mirror的地址，将该地址配置在Docker Daemon的启动脚本中，重启Docker Daemon即可使得Docker Hub Mirror配置生效，换句话说，把这个获取的地址复制到要加速的服务器上执行一次，然后重启docker，就ok。 docker加速1234root@ubuntu:~# curl -sSL https://get.daocloud.io/daotools/set_mirror.sh | sh -s http://4e70ba5d.m.daocloud.io root@ubuntu:~# cat /etc/docker/daemon.json &#123;"registry-mirrors": ["http://4e70ba5d.m.daocloud.io"]&#125; root@ubuntu:~# 重启docker服务1root@ubuntu:~# service docker restart 遇到的坑 *或许你会遇到这样的情况，在重启docker的时候发现因为配置的原因导致无法重启docker，这个时候执行cat /etc/docker/daemon.json，你会看到这样的结果：12root@ubuntu:~# cat /etc/docker/daemon.json &#123;"registry-mirrors": ["http://4e70ba5d.m.daocloud.io"],&#125; //这里的逗号有问题 去掉,后再次启动便成功！]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[centos7 - centos 7.2 /var/run/php-fpm/php-fpm.sock不存在]]></title>
     <url>%2F2018%2F06%2F20%2F%E6%90%AD%E5%BB%BALnmp%E7%8E%AF%E5%A2%83%E6%97%A0%E6%B3%95%E8%AF%86%E5%88%ABphp%E4%BB%A3%E7%A0%81%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88%2F</url>
     <content type="text"><![CDATA[Linux初学者，如有不对请多指点…0-0 在搭建Lnmp环境的时候可能会遇到这么一个问题，发现nginx安装好之后只能解析html文件的代码，却不能解析php文件的代码，这个时候可能出现的情况有两种，第一种是看php、php-fpm是否有装完成和是否启动；第二种情况就是下面的方案，跟系统的关系，nginx的配置有所不同。在nginx中配置重写规则中，有这么一句话： 1fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock 可是在centos7.2中，这个路径没有这个文件，只有一个php-fpm.pid文件，那么上面这个文件在哪里？123[root@izwz9a3uv2157di5ogaaytz sites-enabled]# cd /var/run/php-fpm/[root@izwz9a3uv2157di5ogaaytz php-fpm]# lsphp-fpm.pid 用find / -name &quot;*php*.sock&quot;找一下sock文件的位置，如果没找到的话就是没配置Unix Socket，只能访问TCP端口，可以为改为fastcgi_pass 127.0.0.1:9000 正确的配置：123456789101112location ~ \.php$ &#123; try_files $uri =404; fastcgi_split_path_info ^(.+\.php)(/.+)$; #fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock; //原来的 fastcgi_pass 127.0.0.1:9000; //更改之后 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; fastcgi_param PATH_INFO $uri; fastcgi_param SCRIPT_NAME $fastcgi_script_name; fastcgi_index index.php; include fastcgi_params; &#125; CentOS7yum安装PHP7.2 12345678910yum -y remove php* //如果之前已经安装我们先卸载一下//由于linux的yum源不存在php7.x，所以我们要更改yum源rpm -Uvh https://dl.fedoraproject.org/pub/epel/epel-release-latest-7.noarch.rpm rpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm //yum 安装php72w和各种拓展，选自己需要的即可yum -y install php72w php72w-cli php72w-common php72w-devel php72w-embedded php72w-fpm php72w-gd php72w-mbstring php72w-mysqlnd php72w-opcache php72w-pdo php72w-xml]]></content>
