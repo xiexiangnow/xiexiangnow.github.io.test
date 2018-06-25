@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="php," />
+  <meta name="keywords" content="linux," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树12345678910111213141516171819202122">
-<meta name="keywords" content="php">
+<meta name="description" content="安装composercomposer.json 声明PHP依赖的第三方扩展的文件加载该文件需要安装composer, composer是PHP的一个类库依赖管理机制，运行composer需要 php 5.3以上版本, 并且确定PHP CURL 扩展可用。 nginx的配置情况下面先附上nginx的配置供参考123456">
+<meta name="keywords" content="linux">
 <meta property="og:type" content="article">
-<meta property="og:title" content="两个重要函数（获取无限极菜单+批量排序）">
-<meta property="og:url" content="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/index.html">
+<meta property="og:title" content="Linux搭建Laravel环境">
+<meta property="og:url" content="http://xiexiangnow.github.io/2018/06/25/Linux搭建Laravel环境/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
-<meta property="og:description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树1234567891011121314151617181920212223242526272829303132333435363738/*** 得到菜">
+<meta property="og:description" content="安装composercomposer.json 声明PHP依赖的第三方扩展的文件加载该文件需要安装composer, composer是PHP的一个类库依赖管理机制，运行composer需要 php 5.3以上版本, 并且确定PHP CURL 扩展可用。 nginx的配置情况下面先附上nginx的配置供参考1234567891011121314151617181920212223242526272">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-02-02T09:49:23.978Z">
+<meta property="og:updated_time" content="2018-06-25T03:04:30.677Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="两个重要函数（获取无限极菜单+批量排序）">
-<meta name="twitter:description" content="以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。 获取目录树1234567891011121314151617181920212223242526272829303132333435363738/*** 得到菜">
+<meta name="twitter:title" content="Linux搭建Laravel环境">
+<meta name="twitter:description" content="安装composercomposer.json 声明PHP依赖的第三方扩展的文件加载该文件需要安装composer, composer是PHP的一个类库依赖管理机制，运行composer需要 php 5.3以上版本, 并且确定PHP CURL 扩展可用。 nginx的配置情况下面先附上nginx的配置供参考1234567891011121314151617181920212223242526272">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/"/>
+  <link rel="canonical" href="http://xiexiangnow.github.io/2018/06/25/Linux搭建Laravel环境/"/>
 
 
 
 
 
-  <title>两个重要函数（获取无限极菜单+批量排序） | Xiang's Blog</title>
+  <title>Linux搭建Laravel环境 | Xiang's Blog</title>
   
 
 
@@ -311,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/06/25/Linux搭建Laravel环境/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="谢♪翔">
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">两个重要函数（获取无限极菜单+批量排序）</h1>
+          <h1 class="post-title" itemprop="name headline">Linux搭建Laravel环境</h1>
         
 
         <div class="post-meta">
@@ -340,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-02T17:42:21+08:00">
-                2018-02-02
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T10:31:52+08:00">
+                2018-06-25
               </time>
             
 
@@ -363,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/linux/" itemprop="url" rel="index">
+                    <span itemprop="name">linux</span>
                   </a>
                 </span>
 
@@ -399,7 +399,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  532 字
+                  444 字
                 </span>
               
 
@@ -415,7 +415,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3 分钟
+                  2 分钟
                 </span>
               
             </div>
@@ -436,10 +436,13 @@
       
 
       
-        <p>以下两个函数是自己在接触PHP的时候学到的，这里做一下记录只是为了怀念那个时候对于行业的那种陌生感和探索欲望，这两个函数虽然不是很难，但是用的地方不少，比如获取目录树，可以用在对类目的管理、评论等无限级的地方都可以用，话不多说，请看代码。</p>
-<h4 id="获取目录树"><a href="#获取目录树" class="headerlink" title="获取目录树"></a>获取目录树</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 得到菜单栏目树</span></span><br><span class="line"><span class="comment">* <span class="doctag">@author</span> xiexiang 2016-03-17</span></span><br><span class="line"><span class="comment">* <span class="doctag">@params</span> eg $map = "name = 'xiexiang'"   //查询条件</span></span><br><span class="line"><span class="comment">**/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getMenu</span><span class="params">($map )</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//实例化数据表menu</span></span><br><span class="line">    $menu = <span class="keyword">new</span> model_op_menu() ;</span><br><span class="line">    $order = <span class="string">"ORDER BY level ASC,sort DESC"</span>;</span><br><span class="line">    $menu_list = $menu-&gt; select($map , <span class="string">''</span>, <span class="string">''</span>, $order , <span class="string">''</span>, <span class="string">''</span>);</span><br><span class="line">    $mod_list = $menu_list-&gt; items;</span><br><span class="line">    <span class="keyword">if</span> (!$mod_list || <span class="keyword">empty</span>( $mod_list)) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    $tmp = <span class="keyword">array</span>() ;</span><br><span class="line">    $address = <span class="keyword">array</span>() ; <span class="comment">//父级地址</span></span><br><span class="line">    <span class="keyword">foreach</span> ($mod_list <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">        $id = $v[ <span class="string">'id'</span>];</span><br><span class="line">        <span class="keyword">if</span> ($v [<span class="string">'level'</span>] &lt;= <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="comment">//一级</span></span><br><span class="line">            $tmp [$id] = $v;</span><br><span class="line">            $address [$id] = &amp; $tmp[$id ];</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="comment">//子集</span></span><br><span class="line">            $pid = $v[ <span class="string">'pid'</span>];</span><br><span class="line">            <span class="keyword">if</span> (!$address[ $pid][<span class="string">'child'</span> ]) &#123;</span><br><span class="line">                $address[ $pid][<span class="string">'child'</span> ] = <span class="keyword">array</span>() ;</span><br><span class="line">            &#125;</span><br><span class="line">            $address [$pid][ <span class="string">'child'</span>][$id ] = $v;</span><br><span class="line">            $address [$id] = &amp; $address[$pid ][<span class="string">'child'</span>][ $id];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> $tmp;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="批量排序"><a href="#批量排序" class="headerlink" title="批量排序"></a>批量排序</h4><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">* 批量排序</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">pagesort</span><span class="params">()</span></span></span><br><span class="line"><span class="function"></span>&#123;</span><br><span class="line">    <span class="comment">//异常插入</span></span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        $sort = lib_BaseUtils::getStr( $_GET[<span class="string">'sort'</span> ]);</span><br><span class="line">        <span class="keyword">if</span> (<span class="keyword">empty</span>( $sort)) &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>( <span class="string">'请选择需要排序的数据！'</span> , <span class="number">0</span>) ;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">foreach</span> ( $sort <span class="keyword">as</span> $k =&gt; $v) &#123;</span><br><span class="line">            <span class="keyword">if</span> (!is_numeric( $k) || !is_numeric($v )) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            $sql_bat_sort .= <span class="string">" WHEN &#123; $k&#125; THEN &#123;$v&#125; "</span>;</span><br><span class="line">            $sql_ids .= <span class="string">','</span> . $k;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        $menu = <span class="keyword">new</span> model_op_menu() ;</span><br><span class="line">        $sql = <span class="string">"UPDATE op_menu SET sort= CASE id "</span> . $sql_bat_sort . <span class="string">" END WHERE id IN ("</span> . trim($sql_ids , <span class="string">', '</span>) . <span class="string">")"</span>;</span><br><span class="line">        $menu -&gt;query( $sql);</span><br><span class="line"></span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> <span class="keyword">Exception</span>(<span class="string">'批量排序成功！'</span>, <span class="number">1</span> );</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &#125; <span class="keyword">catch</span> (<span class="keyword">Exception</span> $e ) &#123;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">$this</span> -&gt;printmsg( $e-&gt;getMessage (), $e -&gt;getCode()) ;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h4 id="巧办法"><a href="#巧办法" class="headerlink" title="巧办法"></a>巧办法</h4><p>上诉的获取目录树也可以用通过更加简单的办法来实现，在数据库设计合理的情况下，可以使用递归的方式来做。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * - 得到树形处理后的分类列表</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $pid</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> array $result</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@param</span> int $space</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span> array</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="function"><span class="keyword">function</span> <span class="title">getTree</span><span class="params">($pid=<span class="number">0</span>,&amp;$result=[],$space=<span class="number">0</span>)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        $space+=<span class="number">2</span>;</span><br><span class="line">        $parents = Category::where(<span class="string">'cate_pid'</span>,$pid)-&gt;orderBy(<span class="string">'cate_order'</span>,<span class="string">'DESC'</span>)-&gt;get();</span><br><span class="line">        <span class="keyword">foreach</span> ($parents <span class="keyword">as</span> $key =&gt; $val)&#123;</span><br><span class="line">            <span class="keyword">if</span> ($val-&gt;cate_pid != <span class="number">0</span>)&#123;</span><br><span class="line">                $val[<span class="string">'cate_name'</span>] = str_repeat(<span class="string">'&amp;nbsp;&amp;nbsp;&amp;nbsp;'</span>,$space).<span class="string">'▲ '</span>.$val[<span class="string">'cate_name'</span>];</span><br><span class="line">            &#125;</span><br><span class="line">            $result[] = $val;</span><br><span class="line">            <span class="keyword">$this</span>-&gt;getTree($val-&gt;cate_id,$result,$space);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> $result;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+        <h3 id="安装composer"><a href="#安装composer" class="headerlink" title="安装composer"></a>安装composer</h3><p>composer.json 声明PHP依赖的第三方扩展的文件<br>加载该文件需要安装composer, composer是PHP的一个类库依赖管理机制，运行composer需要 php 5.3以上版本, 并且确定PHP CURL 扩展可用。</p>
+<h3 id="nginx的配置情况"><a href="#nginx的配置情况" class="headerlink" title="nginx的配置情况"></a>nginx的配置情况</h3><p>下面先附上nginx的配置供参考<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen   <span class="number">80</span>;      <span class="comment"># 端口号</span></span><br><span class="line"></span><br><span class="line">        root /data/cms-message/<span class="keyword">public</span>;         <span class="comment"># 站点指向的入口地址</span></span><br><span class="line">        index index.php index.html index.htm;  <span class="comment"># 能识别的入口文件</span></span><br><span class="line"></span><br><span class="line">        server_name localhost;   <span class="comment"># 域名配置</span></span><br><span class="line"></span><br><span class="line">        sendfile on;</span><br><span class="line"></span><br><span class="line">        error_log /<span class="keyword">var</span>/log/nginx/aa.log debug;   <span class="comment"># 错误日志地址配置</span></span><br><span class="line">        <span class="comment">#access_log /dev/stdout;</span></span><br><span class="line">        <span class="comment">#include /var/www/html/php-zzgg-un-web/htanginx;</span></span><br><span class="line"></span><br><span class="line">        <span class="comment">#根据laravel规则进行url重写 </span></span><br><span class="line">        <span class="keyword">if</span> (!-e $request_filename)</span><br><span class="line">        &#123;</span><br><span class="line">          rewrite ^/(.*)$ /index.php?/$<span class="number">1</span> last;</span><br><span class="line">          <span class="keyword">break</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        error_page <span class="number">404</span> /<span class="number">404.</span>html;</span><br><span class="line"></span><br><span class="line">        error_page <span class="number">500</span> <span class="number">502</span> <span class="number">503</span> <span class="number">504</span> /<span class="number">50</span>x.html;</span><br><span class="line">        location = /<span class="number">50</span>x.html &#123;</span><br><span class="line">                root /usr/share/nginx/html;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="comment"># pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000</span></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">                try_files $uri =<span class="number">404</span>;</span><br><span class="line">                fastcgi_split_path_info ^(.+\.php)(/.+)$;</span><br><span class="line">                <span class="comment">#fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock; #如果系统有这个目录就配这个目录，没有就配置下面这个</span></span><br><span class="line">                fastcgi_pass  <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span>:<span class="number">9000</span>;</span><br><span class="line">                fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;</span><br><span class="line">                fastcgi_param PATH_INFO $uri;</span><br><span class="line">                fastcgi_param SCRIPT_NAME $fastcgi_script_name;</span><br><span class="line">                fastcgi_index index.php;</span><br><span class="line">                <span class="keyword">include</span> fastcgi_params;</span><br><span class="line">        &#125;</span><br><span class="line">       </span><br><span class="line">        location ~* \.(jpg|jpeg|gif|png|css|js|ico|xml)$ &#123;</span><br><span class="line">                        expires           <span class="number">5</span>d;</span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line">                <span class="comment"># deny access to . files, for security</span></span><br><span class="line">                <span class="comment">#</span></span><br><span class="line">                location ~ /\. &#123;</span><br><span class="line">                        log_not_found off;</span><br><span class="line">                        deny all;</span><br><span class="line">                &#125;</span><br><span class="line">        </span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="laravel的主目录配置"><a href="#laravel的主目录配置" class="headerlink" title="laravel的主目录配置"></a>laravel的主目录配置</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root /data/cms-message/<span class="keyword">public</span>     <span class="comment"># 为项目根目录下的public目录</span></span><br></pre></td></tr></table></figure>
+<h3 id="url重写"><a href="#url重写" class="headerlink" title="url重写"></a>url重写</h3><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#根据laravel规则进行url重写 </span></span><br><span class="line"><span class="keyword">if</span> (!-e $request_filename)</span><br><span class="line">&#123;</span><br><span class="line">  rewrite ^/(.*)$ /index.php?/$<span class="number">1</span> last;</span><br><span class="line">  <span class="keyword">break</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>laravel规则下的url重写</p>
+<h3 id="数据库配置"><a href="#数据库配置" class="headerlink" title="数据库配置"></a>数据库配置</h3><p>根目录.env<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">DB_CONNECTION=mysql</span><br><span class="line">DB_HOST=<span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span></span><br><span class="line">DB_DATABASE=cms_message</span><br><span class="line">DB_USERNAME=root</span><br><span class="line">DB_PASSWORD=</span><br><span class="line">DB_PREFIX=msg_</span><br></pre></td></tr></table></figure></p>
+<p>为安全起见，将root权限设置为只能本地访问。</p>
 
       
     </div>
@@ -497,7 +500,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/" title="两个重要函数（获取无限极菜单+批量排序）">http://xiexiangnow.github.io/2018/02/02/两个重要函数（获取无限极菜单-批量排序）/</a>
+    <a href="http://xiexiangnow.github.io/2018/06/25/Linux搭建Laravel环境/" title="Linux搭建Laravel环境">http://xiexiangnow.github.io/2018/06/25/Linux搭建Laravel环境/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -521,7 +524,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/php/" rel="tag"># php</a>
+            <a href="/tags/linux/" rel="tag"># linux</a>
           
         </div>
       
@@ -534,8 +537,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/02/02/七牛云图床API接口指南/" rel="next" title="七牛云图床API接口指南">
-                <i class="fa fa-chevron-left"></i> 七牛云图床API接口指南
+              <a href="/2018/06/21/Hexo添加字数统计、阅读时长/" rel="next" title="Hexo添加字数统计、阅读时长">
+                <i class="fa fa-chevron-left"></i> Hexo添加字数统计、阅读时长
               </a>
             
           </div>
@@ -543,10 +546,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/02/用JSON获取Bing每日背景图片/" rel="prev" title="用JSON获取Bing每日背景图片">
-                用JSON获取Bing每日背景图片 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1020,7 +1019,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#获取目录树"><span class="nav-number">1.</span> <span class="nav-text">获取目录树</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#批量排序"><span class="nav-number">2.</span> <span class="nav-text">批量排序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#巧办法"><span class="nav-number">3.</span> <span class="nav-text">巧办法</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装composer"><span class="nav-number">1.</span> <span class="nav-text">安装composer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nginx的配置情况"><span class="nav-number">2.</span> <span class="nav-text">nginx的配置情况</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#laravel的主目录配置"><span class="nav-number">3.</span> <span class="nav-text">laravel的主目录配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#url重写"><span class="nav-number">4.</span> <span class="nav-text">url重写</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#数据库配置"><span class="nav-number">5.</span> <span class="nav-text">数据库配置</span></a></li></ol></div>
             
 
           </div>

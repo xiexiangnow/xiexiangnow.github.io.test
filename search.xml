@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Linux搭建Laravel环境]]></title>
+    <url>%2F2018%2F06%2F25%2FLinux%E6%90%AD%E5%BB%BALaravel%E7%8E%AF%E5%A2%83%2F</url>
+    <content type="text"><![CDATA[安装composercomposer.json 声明PHP依赖的第三方扩展的文件加载该文件需要安装composer, composer是PHP的一个类库依赖管理机制，运行composer需要 php 5.3以上版本, 并且确定PHP CURL 扩展可用。 nginx的配置情况下面先附上nginx的配置供参考1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253server &#123; listen 80; # 端口号 root /data/cms-message/public; # 站点指向的入口地址 index index.php index.html index.htm; # 能识别的入口文件 server_name localhost; # 域名配置 sendfile on; error_log /var/log/nginx/aa.log debug; # 错误日志地址配置 #access_log /dev/stdout; #include /var/www/html/php-zzgg-un-web/htanginx; #根据laravel规则进行url重写 if (!-e $request_filename) &#123; rewrite ^/(.*)$ /index.php?/$1 last; break; &#125; error_page 404 /404.html; error_page 500 502 503 504 /50x.html; location = /50x.html &#123; root /usr/share/nginx/html; &#125; # pass the PHP scripts to FastCGI server listening on 127.0.0.1:9000 location ~ \.php$ &#123; try_files $uri =404; fastcgi_split_path_info ^(.+\.php)(/.+)$; #fastcgi_pass unix:/var/run/php-fpm/php-fpm.sock; #如果系统有这个目录就配这个目录，没有就配置下面这个 fastcgi_pass 127.0.0.1:9000; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; fastcgi_param PATH_INFO $uri; fastcgi_param SCRIPT_NAME $fastcgi_script_name; fastcgi_index index.php; include fastcgi_params; &#125; location ~* \.(jpg|jpeg|gif|png|css|js|ico|xml)$ &#123; expires 5d; &#125; # deny access to . files, for security # location ~ /\. &#123; log_not_found off; deny all; &#125; &#125; laravel的主目录配置1root /data/cms-message/public # 为项目根目录下的public目录 url重写123456#根据laravel规则进行url重写 if (!-e $request_filename)&#123; rewrite ^/(.*)$ /index.php?/$1 last; break;&#125; laravel规则下的url重写 数据库配置根目录.env123456DB_CONNECTION=mysqlDB_HOST=127.0.0.1DB_DATABASE=cms_messageDB_USERNAME=rootDB_PASSWORD=DB_PREFIX=msg_ 为安全起见，将root权限设置为只能本地访问。]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Hexo添加字数统计、阅读时长]]></title>
     <url>%2F2018%2F06%2F21%2FHexo%E6%B7%BB%E5%8A%A0%E5%AD%97%E6%95%B0%E7%BB%9F%E8%AE%A1%E3%80%81%E9%98%85%E8%AF%BB%E6%97%B6%E9%95%BF%2F</url>
     <content type="text"><![CDATA[配置NexT 主题默认已经集成了文章【字数统计】、【阅读时长】统计功能，如果我们需要使用，只需要在主题配置文件 themes/next/_config.yml 中打开 wordcount 统计功能即可。如下所示：12345678# Post wordcount display settings# Dependencies: https://github.com/willin/hexo-wordcountpost_wordcount: item_text: true wordcount: true # 单篇 字数统计 min2read: true # 单篇 阅读时长 totalcount: false # 网站 字数统计 separated_meta: true 修改完成主题配置文件后，启动服务预览：1hexo server 访问 http://localhost:4000/ 链接，如果出现字数统计和阅读时长失效的情况，一般是因为没有安装 hexo-wordcount 插件，查看 Hexo 插件：1hexo --debug 安装如果没有安装 hexo-wordcount 插件，先安装该插件：1npm i --save hexo-wordcount Node 版本 7.6.0 之前,请安装 2.x 版本 (Node.js v7.6.0 and previous) ，安装命令如下：1npm install hexo-wordcount@2 --save 安装完成后，重新执行启动服务预览就可以了。 编辑模板路径：xxx_blog/themes/next/layout/_macro/post.swig 修改【字数统计】，找到如下代码后，改成如下样子：123&lt;span title="&#123;&#123; __('post.wordcount') &#125;&#125;"&gt; &#123;&#123; wordcount(post.content) &#125;&#125; 字&lt;/span&gt; 同理，我们修改【阅读时长】，修改后如下：123&lt;span title="&#123;&#123; __('post.min2read') &#125;&#125;"&gt; &#123;&#123; min2read(post.content) &#125;&#125; 分钟&lt;/span&gt; 修改完成后，重新执行启动服务预览就可以了。修改后，效果如下图所示：修改完成后，重新执行启动服务预览就可以了。修改后，效果如下图所示：]]></content>
