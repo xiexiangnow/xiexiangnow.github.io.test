@@ -88,7 +88,7 @@
 <meta property="og:description" content="Java异常处理语法语法格式：123456789101112131415161718try&amp;#123;    //代码块    ....        //主动抛出异常    throw new MismatchException(&quot;这里是异常信息&quot;);&amp;#125;catch(MismatchException e)&amp;#123;    //除非try里面执行代码发生了异常，否则这里的代码不会执行">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://xiexiangnow.github.io/img/string-f.png">
-<meta property="og:updated_time" content="2018-06-29T10:07:24.151Z">
+<meta property="og:updated_time" content="2018-07-02T02:16:30.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java学习-part.05（异常、字符串、字符串处理及转换、包装类、时间处理、Math类操作）">
 <meta name="twitter:description" content="Java异常处理语法语法格式：123456789101112131415161718try&amp;#123;    //代码块    ....        //主动抛出异常    throw new MismatchException(&quot;这里是异常信息&quot;);&amp;#125;catch(MismatchException e)&amp;#123;    //除非try里面执行代码发生了异常，否则这里的代码不会执行">
@@ -401,7 +401,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  2,779 字
+                  3,026 字
                 </span>
               
 
@@ -417,7 +417,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  12 分钟
+                  13 分钟
                 </span>
               
             </div>
@@ -608,6 +608,40 @@
 <p>调用 Calendar 类的 <code>getInstance()</code> 方法获取一个实例，然后通过调用 get() 方法获取日期时间信息，参数为需要获得的字段的值， <code>Calendar.YEAR</code> 等为 Calendar 类中定义的<code>静态常量</code>。</p>
 <p>Calendar类提供了<code>getTime()</code>方法，用来获取Date对象，完成Calendar和Date的转换，还可以通过getTimeInMillis()方法，获取此Calendar的时间值，以毫秒为单位。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建Calendar对象</span></span><br><span class="line">Calendar c = Calendar.getInstance();</span><br><span class="line"><span class="comment">// 将Calendar对象转换为Date对象</span></span><br><span class="line">Date date = c.getTime();</span><br><span class="line"></span><br><span class="line"><span class="comment">// 创建SimpleDateFormat对象，指定目标格式</span></span><br><span class="line">SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM-dd HH:mm:ss"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 将日期转换为指定格式的字符串</span></span><br><span class="line">String now = sdf.format(date);</span><br><span class="line"></span><br><span class="line">System.out.println(<span class="string">"当前时间："</span> + now);</span><br><span class="line"></span><br><span class="line">执行结果：</span><br><span class="line">当前时间：<span class="number">2018</span>-<span class="number">06</span>-<span class="number">29</span> <span class="number">17</span>:<span class="number">44</span>:<span class="number">41</span></span><br></pre></td></tr></table></figure>
+<h2 id="Math类操作数据"><a href="#Math类操作数据" class="headerlink" title="Math类操作数据"></a>Math类操作数据</h2><p>Math类位于java.lang包中，包含用于执行基本数学运算的方法，Math类的所有的方法都是<em>静态方法</em>，所以使用该类中的方法时，可以直接使用类名.方法名。</p>
+<p>常用的方法：</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>说明</th>
+<th>返回值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>round</td>
+<td>返回四舍五入后的整数</td>
+<td>long</td>
+</tr>
+<tr>
+<td>floor</td>
+<td>返回小于参数的最大整数</td>
+<td>double</td>
+</tr>
+<tr>
+<td>ceil</td>
+<td>返回大于参数的最小整数</td>
+<td>double</td>
+</tr>
+<tr>
+<td>random</td>
+<td>返回[0，1）之前的随机数浮点数</td>
+<td>double</td>
+</tr>
+</tbody>
+</table>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.string;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MathTest</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">		<span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">		MathTest test = <span class="keyword">new</span> MathTest();</span><br><span class="line">		test.MathRandomTest();</span><br><span class="line">	&#125;</span><br><span class="line">	</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">MathRandomTest</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		<span class="keyword">int</span> nums[] = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];</span><br><span class="line">		<span class="keyword">float</span> douStr = <span class="number">45.66f</span>;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length;i++) &#123;</span><br><span class="line">			nums[i] = (<span class="keyword">int</span>)(Math.random() * <span class="number">100</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> num:nums) &#123;</span><br><span class="line">			System.out.print(num+<span class="string">"-"</span>);</span><br><span class="line">		&#125;</span><br><span class="line">		System.out.println(Math.ceil(douStr));</span><br><span class="line">		System.out.println(Math.floor(douStr));</span><br><span class="line">		System.out.println(Math.round(douStr));</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">执行结果：</span><br><span class="line">  <span class="number">44</span>-<span class="number">98</span>-<span class="number">49</span>-<span class="number">49</span>-<span class="number">94</span>-<span class="number">13</span>-<span class="number">64</span>-<span class="number">86</span>-<span class="number">72</span>-<span class="number">50</span>-</span><br><span class="line">  <span class="number">46.0</span></span><br><span class="line">  <span class="number">45.0</span></span><br><span class="line">  <span class="number">46</span></span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -1184,7 +1218,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java异常处理"><span class="nav-number">1.</span> <span class="nav-text">Java异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.0.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义异常"><span class="nav-number">1.0.2.</span> <span class="nav-text">自定义异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常链"><span class="nav-number">1.0.3.</span> <span class="nav-text">异常链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前车之鉴"><span class="nav-number">1.0.4.</span> <span class="nav-text">前车之鉴</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的字符串"><span class="nav-number">2.</span> <span class="nav-text">Java中的字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述与语法"><span class="nav-number">2.0.1.</span> <span class="nav-text">概述与语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的不变性"><span class="nav-number">2.0.2.</span> <span class="nav-text">字符串的不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串处理的常用方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">字符串处理的常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“-”-和-equals-的区别"><span class="nav-number">2.0.4.</span> <span class="nav-text">“==” 和 equals() 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的StringBuilder类及常用方法"><span class="nav-number">2.0.5.</span> <span class="nav-text">Java中的StringBuilder类及常用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的包装类"><span class="nav-number">3.</span> <span class="nav-text">Java中的包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型与包装类的转换-（装箱与拆箱）"><span class="nav-number">4.</span> <span class="nav-text">基本数据类型与包装类的转换 （装箱与拆箱）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型与字符串之间的转换"><span class="nav-number">5.</span> <span class="nav-text">基本数据类型与字符串之间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型转字符串"><span class="nav-number">5.0.1.</span> <span class="nav-text">基本类型转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转基本类型"><span class="nav-number">5.0.2.</span> <span class="nav-text">字符串转基本类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Date和SimpleDateFormat类表示时间"><span class="nav-number">6.</span> <span class="nav-text">使用Date和SimpleDateFormat类表示时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar-类的应用"><span class="nav-number">7.</span> <span class="nav-text">Calendar 类的应用</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Java异常处理"><span class="nav-number">1.</span> <span class="nav-text">Java异常处理</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#语法"><span class="nav-number">1.0.1.</span> <span class="nav-text">语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#自定义异常"><span class="nav-number">1.0.2.</span> <span class="nav-text">自定义异常</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#异常链"><span class="nav-number">1.0.3.</span> <span class="nav-text">异常链</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#前车之鉴"><span class="nav-number">1.0.4.</span> <span class="nav-text">前车之鉴</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的字符串"><span class="nav-number">2.</span> <span class="nav-text">Java中的字符串</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#概述与语法"><span class="nav-number">2.0.1.</span> <span class="nav-text">概述与语法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串的不变性"><span class="nav-number">2.0.2.</span> <span class="nav-text">字符串的不变性</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串处理的常用方法"><span class="nav-number">2.0.3.</span> <span class="nav-text">字符串处理的常用方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#“-”-和-equals-的区别"><span class="nav-number">2.0.4.</span> <span class="nav-text">“==” 和 equals() 的区别</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Java中的StringBuilder类及常用方法"><span class="nav-number">2.0.5.</span> <span class="nav-text">Java中的StringBuilder类及常用方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Java中的包装类"><span class="nav-number">3.</span> <span class="nav-text">Java中的包装类</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型与包装类的转换-（装箱与拆箱）"><span class="nav-number">4.</span> <span class="nav-text">基本数据类型与包装类的转换 （装箱与拆箱）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本数据类型与字符串之间的转换"><span class="nav-number">5.</span> <span class="nav-text">基本数据类型与字符串之间的转换</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#基本类型转字符串"><span class="nav-number">5.0.1.</span> <span class="nav-text">基本类型转字符串</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#字符串转基本类型"><span class="nav-number">5.0.2.</span> <span class="nav-text">字符串转基本类型</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用Date和SimpleDateFormat类表示时间"><span class="nav-number">6.</span> <span class="nav-text">使用Date和SimpleDateFormat类表示时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Calendar-类的应用"><span class="nav-number">7.</span> <span class="nav-text">Calendar 类的应用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Math类操作数据"><span class="nav-number">8.</span> <span class="nav-text">Math类操作数据</span></a></li></ol></div>
             
 
           </div>
@@ -1224,7 +1258,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.4k</span>
+    <span title="Site words total count">39.7k</span>
   
 </div>
 
