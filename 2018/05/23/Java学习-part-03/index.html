@@ -82,14 +82,14 @@
 <meta name="description" content="面向对象三大特性 封装、继承、多态 封装1、概念：将类的某些信息隐藏在类的内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。 2、好处：  只能通过规定的方法访问数据 隐藏类的实例细节，方便修改和实现  3、实现步骤：  修改属性的可见性-设为private 创建setter/gette">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java学习-part.03">
+<meta property="og:title" content="Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）">
 <meta property="og:url" content="http://xiexiangnow.github.io/2018/05/23/Java学习-part-03/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
 <meta property="og:description" content="面向对象三大特性 封装、继承、多态 封装1、概念：将类的某些信息隐藏在类的内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。 2、好处：  只能通过规定的方法访问数据 隐藏类的实例细节，方便修改和实现  3、实现步骤：  修改属性的可见性-设为private 创建setter/getter方法-用户属性的读写 在setter/getter方法中加入属性控制语句-对属">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-07T08:17:05.883Z">
+<meta property="og:updated_time" content="2018-07-04T01:26:43.041Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java学习-part.03">
+<meta name="twitter:title" content="Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）">
 <meta name="twitter:description" content="面向对象三大特性 封装、继承、多态 封装1、概念：将类的某些信息隐藏在类的内部，不允许外部程序直接访问，而是通过该类提供的方法来实现对隐藏信息的操作和访问。 2、好处：  只能通过规定的方法访问数据 隐藏类的实例细节，方便修改和实现  3、实现步骤：  修改属性的可见性-设为private 创建setter/getter方法-用户属性的读写 在setter/getter方法中加入属性控制语句-对属">
 
 
@@ -126,7 +126,7 @@
 
 
 
-  <title>Java学习-part.03 | Xiang's Blog</title>
+  <title>Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类） | Xiang's Blog</title>
   
 
 
@@ -328,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java学习-part.03</h1>
+          <h1 class="post-title" itemprop="name headline">Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）</h1>
         
 
         <div class="post-meta">
@@ -590,7 +590,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://xiexiangnow.github.io/2018/05/23/Java学习-part-03/" title="Java学习-part.03">http://xiexiangnow.github.io/2018/05/23/Java学习-part-03/</a>
+    <a href="http://xiexiangnow.github.io/2018/05/23/Java学习-part-03/" title="Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）">http://xiexiangnow.github.io/2018/05/23/Java学习-part-03/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -627,8 +627,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/23/Java学习-part-02/" rel="next" title="Java学习-part.02">
-                <i class="fa fa-chevron-left"></i> Java学习-part.02
+              <a href="/2018/05/23/Java学习-part-02/" rel="next" title="Java学习-part.02（面向对象、构造方法、static）">
+                <i class="fa fa-chevron-left"></i> Java学习-part.02（面向对象、构造方法、static）
               </a>
             
           </div>
@@ -637,8 +637,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/25/Java学习-part-04/" rel="prev" title="Java学习-part.04">
-                Java学习-part.04 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/05/25/Java学习-part-04/" rel="prev" title="Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口）">
+                Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -720,7 +720,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1153,7 +1153,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.7k</span>
+    <span title="Site words total count">40.0k</span>
   
 </div>
 

@@ -82,7 +82,7 @@
 <meta name="description" content="java中的继承1、继承的概念： 继承是类与类的一种关系，是一中 &amp;quot;is a&amp;quot;的关系。 注：java中的继承是单继承2、继承的好处 子类拥有父类的所有的属性和方法，但是父类中的private修饰符无效 实现代码复用  eg：生活有要是有个好爹，就可以少奋斗几年;如果继承了父亲的权力，">
 <meta name="keywords" content="java">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java学习-part.04">
+<meta property="og:title" content="Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口）">
 <meta property="og:url" content="http://xiexiangnow.github.io/2018/05/25/Java学习-part-04/index.html">
 <meta property="og:site_name" content="Xiang&#39;s Blog">
 <meta property="og:description" content="java中的继承1、继承的概念： 继承是类与类的一种关系，是一中 &amp;quot;is a&amp;quot;的关系。 注：java中的继承是单继承2、继承的好处 子类拥有父类的所有的属性和方法，但是父类中的private修饰符无效 实现代码复用  eg：生活有要是有个好爹，就可以少奋斗几年;如果继承了父亲的权力，那就是官二代3、语法1234class  子类 extends 父类 例：class Dog e">
@@ -90,9 +90,9 @@
 <meta property="og:image" content="http://xiexiangnow.github.io/img/extends.jpg">
 <meta property="og:image" content="http://xiexiangnow.github.io/img/java-equals.png">
 <meta property="og:image" content="http://xiexiangnow.github.io/img/interface.png">
-<meta property="og:updated_time" content="2018-06-07T08:17:05.897Z">
+<meta property="og:updated_time" content="2018-07-04T01:25:16.129Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java学习-part.04">
+<meta name="twitter:title" content="Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口）">
 <meta name="twitter:description" content="java中的继承1、继承的概念： 继承是类与类的一种关系，是一中 &amp;quot;is a&amp;quot;的关系。 注：java中的继承是单继承2、继承的好处 子类拥有父类的所有的属性和方法，但是父类中的private修饰符无效 实现代码复用  eg：生活有要是有个好爹，就可以少奋斗几年;如果继承了父亲的权力，那就是官二代3、语法1234class  子类 extends 父类 例：class Dog e">
 <meta name="twitter:image" content="http://xiexiangnow.github.io/img/extends.jpg">
 
@@ -130,7 +130,7 @@
 
 
 
-  <title>Java学习-part.04 | Xiang's Blog</title>
+  <title>Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口） | Xiang's Blog</title>
   
 
 
@@ -332,7 +332,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Java学习-part.04</h1>
+          <h1 class="post-title" itemprop="name headline">Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口）</h1>
         
 
         <div class="post-meta">
@@ -565,7 +565,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://xiexiangnow.github.io/2018/05/25/Java学习-part-04/" title="Java学习-part.04">http://xiexiangnow.github.io/2018/05/25/Java学习-part-04/</a>
+    <a href="http://xiexiangnow.github.io/2018/05/25/Java学习-part-04/" title="Java学习-part.04（继承、重写、super、多态、多态的引用类型转换、抽象类、接口）">http://xiexiangnow.github.io/2018/05/25/Java学习-part-04/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -602,8 +602,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/23/Java学习-part-03/" rel="next" title="Java学习-part.03">
-                <i class="fa fa-chevron-left"></i> Java学习-part.03
+              <a href="/2018/05/23/Java学习-part-03/" rel="next" title="Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）">
+                <i class="fa fa-chevron-left"></i> Java学习-part.03（封装、访问修饰符、this、内部类、静态内部类、方法内部类）
               </a>
             
           </div>
@@ -695,7 +695,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">30</span>
+                  <span class="site-state-item-count">31</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1128,7 +1128,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">39.7k</span>
+    <span title="Site words total count">40.0k</span>
   
 </div>
 
