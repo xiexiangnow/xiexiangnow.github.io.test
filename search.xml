@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java的第一次实战交互]]></title>
+    <url>%2F2018%2F10%2F17%2FJava%E7%9A%84%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%9E%E6%88%98%E4%BA%A4%E4%BA%92%2F</url>
+    <content type="text"><![CDATA[学习java有这么一段时间了，在这段时间明显的感觉到了PHP与java的区别所在，从直观的感受来说同一个功能点java的代码量大于PHP很多，而且全程都是面向对象、设计模式，层次感、逻辑感非常的清楚，规范性的东西很多而且非常严格，request和response都是对象的形式，不再像PHP有单属性的出入参，至于大众说的java比PHP的性能要好，我暂时没有明显的感觉，因为从我内心深处来说，我并不这么认为 0-0.本篇文章主要记录的是java之间互相调用下的处理场景以及java在写api时的整个流程以及生命周期，本篇文章很可能不是一篇文章，更多是作为自己对学习java漫漫长路上的一次记录而已，欢迎指正！ 业务需求现目前对所有项目中关于客户的隐私信息及其关注，因此我们需要对每次查看客户隐私信息的用户进行日志记录。 业务方POM依赖123456789&lt;dependency&gt;&lt;groupId&gt;com.xxx.monitor&lt;/groupId&gt;&lt;artifactId&gt;java-xxx-monitor-api&lt;/artifactId&gt;&lt;version&gt;1.0.0-SNAPSHOT&lt;/version&gt;&lt;/dependency&gt; 接口方法1ItemResult&lt;Boolean&gt; addMonitorLog(Request&lt;MonitorLogFormDTO&gt; request) 接口 ：com.xxx.monitor.api.service.IMonitorService 依赖配置dubbo中主pom的依赖配置 (父pom)地址：java-xxx-agent-dubbo/pom.xml properties标签下配置1&lt;java-xxx-monitor-api.version&gt;1.0.0-SNAPSHOT&lt;/java-xxx-monitor-api.version&gt; dependencies标签下配置123456&lt;!-- xxx monitor --&gt; &lt;dependency&gt; &lt;groupId&gt;com.xxx.monitor&lt;/groupId&gt; &lt;artifactId&gt;java-xxx-monitor-api&lt;/artifactId&gt; &lt;version&gt;$&#123;java-xxx-monitor-api.version&#125;&lt;/version&gt; &lt;/dependency&gt; dubbo-intergrate中pom的依赖配置地址：java-xxx-agent-dubbo/xxx-agent-dubbo-intergrate/pom.xml dependencies标签下配置：12345&lt;!-- xxx monitor --&gt;&lt;dependency&gt; &lt;groupId&gt;com.xxx.monitor&lt;/groupId&gt; &lt;artifactId&gt;java-xxx-monitor-api&lt;/artifactId&gt;&lt;/dependency&gt; 消费者配置dubbo-web中的消费者配置在java-xxx-agent-dubbo/xxx-agent-dubbo-web/src/main/resources/dubbo下的dubbo-consumer.xml文件中添加消费者信息。 id为定义的属性名称 interface为业务方jar包地址1&lt;dubbo:reference id="iMonitoLogService" interface="com.ipr.monitor.api.service.IMonitoLogService" check="false"/&gt; dubbo-test中的消费者配置在java-xxx-agent-dubbo/xxx-agent-dubbo-test/src/test/resources/dubbo下的dubbo-consumer-test.xml文件中添加消费者信息，该配置主要是用于单元测试中使用。 id为定义的属性名称 interface为业务方jar包地址1&lt;dubbo:reference id="iMonitoLogService" interface="com.ipr.monitor.api.service.IMonitoLogService" check="false"/&gt; 层次逻辑层次逻辑以一张流程图来表述]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[微信公众号开发-测试号申请及配置]]></title>
     <url>%2F2018%2F09%2F29%2F%E5%BE%AE%E4%BF%A1%E5%85%AC%E4%BC%97%E5%8F%B7%E5%BC%80%E5%8F%91-%E6%B5%8B%E8%AF%95%E5%8F%B7%E7%94%B3%E8%AF%B7%E5%8F%8A%E9%85%8D%E7%BD%AE%2F</url>
     <content type="text"><![CDATA[微信公众号的开发在目前来说还有占有一定的市场比重的，因为它具有它独有的特点已经有点，所以目前还有一大部分项目仍然是嫁接在微信公众号上面作为出入口的；目前有绝大部分的公司内部都有自己的测试（test）环境，当然有的公司具有多个测试环境，代码的冒烟、压测等都在是测试环境完成的，所以对应的我们也需要申请测试版的微信公众号作为开发测试所需要的必备工具，本篇文章主要就是讲述的如何申请微信测试公众号以及参数配置。 申请地址地址：https://mp.weixin.qq.com/wiki?t=resource/res_main&amp;id=mp1421137522 登录地址之后，通过自己的微信扫码登录后进入到测试号管理界面，每个测试号都会对应的分配一组appID和appsecret，这两个参数在开发的时候会用到。 参数配置接口配置信息修改测试号管理里面有个接口配置信息修改，里面对应有URL和Token两个值的修改URL：此参数是微信端来验证开发者这端是否拥有自己的服务器资源，填入的地址必须是一个外网能访问到的地址（路由），同时必须是80端口，否者无法配置该参数；Token：这个值为开发者与微信公众平台约定的一个字符串，可以自定义，两者一致即可； 备注：在很多公司代码在未上线之前，对应的开发项目可能只是一个测试的域名，该域名还有可能只能内网访问，这个时候就需要对测试域名做外网映射处理，让外网也能访问到该测试域名，不然该URL参数无法配置。 JS接口安全域名修改设置JS接口安全域后，通过关注该测试号，开发者即可在该域名下调用微信开放的JS接口，这里的域名一般填写项目对应的域名即可 OAuth2.0 网页授权在该页面的下面的体验接口权限表里面有一个网页授权获取用户基本信息的参数配置，点击修改后，授权回调页面域名填入项目对应的域名即可，不然前端页面会报一个10003的错误。 在此时所有的参数配置好之后，就可以做正常的开发了，有的公司或许有多个线下环境（灰度、预发布、性能）等，也可以同样的方式申请不同环境的微信测试公众号作为开发需要。]]></content>
