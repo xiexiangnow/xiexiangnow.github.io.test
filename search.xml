@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Java实战迭代流程（本公司架构）]]></title>
+    <url>%2F2018%2F10%2F30%2FJava%E5%AE%9E%E6%88%98%E8%BF%AD%E4%BB%A3%E6%B5%81%E7%A8%8B%EF%BC%88%E6%9C%AC%E5%85%AC%E5%8F%B8%E6%9E%B6%E6%9E%84%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[Spring是目前java SE还是还是EE都是最主流的框架，强大的IOC（反转控制）和AOP（面向切面编程）成了Spring的核心板块，同时提供了展示层Spring MVC、持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术;本篇文章介绍的流程不仅仅是基于Spring的基础架构，而是公司在Spring的基础架构上做了大量的封装和融入了大量的技术沉淀后优化的内部框架，前面讲到java比php更有层次感，本篇文章将体现得更加明显。 结构介绍以上目录机构为分层之后的企业级内部架构，各个层级间的关系以及功能作用都是相辅相成的关系 api：指向外部接口的接口层，主要功能在于为外部业务线提供功能接口，同时里面包含两大数据DTO，Request和Response，分别可以指定接口的入参和返回值。dubbo：包含展示层Spring MVC、持久层Spring JDBC、逻辑处理以及业务事务管理。-biz：逻辑处理层-common：公共bean存放的地方，通常含有枚举bean以及公共处理方法等。-dao：数据处理层，里面常常包含JDBC、Mybaitis等数据库处理。里面会与数据表对应生成对应的mapper处理器和数据返回DO数据包，mapper里面含有数据表基本的数据增删改查处理方法供使用。-intergrate：外部接口接入，在接入外部项目的时候需在以下pom.xml中和外部dubbo对应的pom.xml中配置依赖。-service:服务处理层,本架构中里面包含有处理回调（callback）、service和定时任务（task）。-test：单元测试层。-web：项目配置层，里面包含applicationContext、servlet、dubbo-comsumer、dubbo-provider、data-source、mybatis-config等这些配置。 开发流程mapper的生成数据表新建之后，必然要在mapper中生成对应的dao层处理器，数据库的操作体系是基于mybatis来的，生成后的mapper里面含有基础的数据库操作方法供使用，如若复杂的sql查询需自行添加mapper方法以及对应的mapper中xml配置的sql语句即可；类似于php中的Model，基于ORM提供了大量的数据库操作方法供使用。生成地址：java-xxx-agent-dubbo/xxx-agent-dubbo-dao/src/test/java/com/xxx/agent/generator/Generator.java 枚举编写如若业务中需要涉及到枚举的地方，需要在common中添加对应的枚举。 编写bizbiz层是比较重要的一个层级，里面包含逻辑及业务处理，它的调用方通常是dao层和intergrate层，它的被调方通常是service层。 编写intergrate如若有外部项目接口接入才需要涉及到这个层，上一篇博客已有详细说明。 编写service编写服务层，主要实现的是api中的interface，它的调用方通常是biz层。 编写apiapi里面将规划对外的接口，包含Request和Response，分别制定入参和返回值方案。 单元测试写完接口需要在test中实现单元测试，以保证接口的畅通性。 服务添加提供者路径：java-xxx-agent-dubbo/xxx-agent-dubbo-web/src/main/resources/dubbo/dubbo-provider.xml编写的新服务需要添加到提供者配置文件中，已确保外部在调用接口的时候能正常使用。1&lt;dubbo:service timeout="10000" cluster="failfast" ref="monitorService" interface="com.xxx.agent.service.api.IMonitorService" /&gt; 流程规划图]]></content>
+      <categories>
+        <category>java</category>
+      </categories>
+      <tags>
+        <tag>java</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Mac下清洗硬盘空间大小]]></title>
     <url>%2F2018%2F10%2F23%2FMac%E4%B8%8B%E6%B8%85%E6%B4%97%E7%A1%AC%E7%9B%98%E7%A9%BA%E9%97%B4%E5%A4%A7%E5%B0%8F%2F</url>
     <content type="text"><![CDATA[本Mac是15款的mac pro，16年底入手一直用到现在没有出现过一点问题，对于开发人员来说无非是行业神器；当时由于资金的原因并没有选择硬盘空间比较大的型号，以至于现在无比的后悔与懊恼，因为本款Mac的硬盘大小只有120G，当时考虑到用于开发不用使用到太多的空间，现在看来其实还是暴露出很多关于储存的问题：大文件不敢放，定时需要清理系统空间，一天天看着可用硬盘空间数，心塞啊老铁！于是乎，各种学习与请教，整理了以下几种清洗Mac硬盘空间的方法，仅对于我来说确实有明显程度的改善，以供参考！ 方法一： 地址：/Users/xiexiang/Library/Containers 资源库中的Containers文件夹：里面都是各软件对应的个人数据，能够从文件名上辨别出来，可以使用du -sh * 命令查看每个文件对应的大小，根据个人情况可以删除里面对应的文件，大约可以省出15G左右的空间。 方法二： 地址：/Users/xiexiang/Library/Caches 这个文件夹顾名思义为Mac上的缓存文件夹，里面放置着各种缓存，进到里面之后可以使用du -sh * 命令查看每个文件对应的大小，根据个人需要删除对应的文件夹。 ps：类似编程软件这些cache建议不要删除，因为里面含有大量的index（索引文件），删除之后再次启动工具，还是会自动整理索引，而且时间很长。 方法三：地址：/System/Library/Speech/如果不使用文字转语音功能，那么肯定就不会用到OS X内置的嗓音文件，可以删除之后重新获得硬盘空间，执行1sudo rm -rf Voices/* 删除，大约可省出5G-10G空间 方法四：地址：/private/var/log随着你的Mac使用的时间越来越长，系统产生的日志文件也越来越多，根据电脑的用量、错误和服务，这些文件也会越来越多，如果你感觉没有用可是使用1sudo rm -rf /private/var/log/* 删除，大约可省出100-300M空间。 以上的方法均可以清除部分硬盘空间，而且有些方法存在一定的风险，请谨慎操作！电子产品硬盘受限确实是个硬伤，还有一些其他的办法自己慢慢琢磨吧~~]]></content>
