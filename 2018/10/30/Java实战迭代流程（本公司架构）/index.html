@@ -90,7 +90,7 @@
 <meta property="og:image" content="http://xiexiangnow.github.io/img/mulu_show.png">
 <meta property="og:image" content="http://xiexiangnow.github.io/img/data-config.png">
 <meta property="og:image" content="http://xiexiangnow.github.io/img/liucheng-02.png">
-<meta property="og:updated_time" content="2018-10-30T07:10:57.393Z">
+<meta property="og:updated_time" content="2018-11-14T02:08:11.273Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java实战迭代流程（本公司架构）">
 <meta name="twitter:description" content="Spring是目前java SE还是还是EE都是最主流的框架，强大的IOC（反转控制）和AOP（面向切面编程）成了Spring的核心板块，同时提供了展示层Spring MVC、持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术;本篇文章介绍的流程不仅仅是基于Spring的基础架构，而是公司在Spring的基础架构上做了大量的封装和融入了大量的技术沉淀后优化的内部框架，前面讲到ja">
@@ -412,7 +412,10 @@
         <p>Spring是目前java SE还是还是EE都是最主流的框架，强大的<code>IOC</code>（反转控制）和<code>AOP</code>（面向切面编程）成了Spring的核心板块，同时提供了展示层Spring MVC、持久层Spring JDBC以及业务层事务管理等众多的企业级应用技术;本篇文章介绍的流程不仅仅是基于Spring的基础架构，而是公司在Spring的基础架构上做了大量的封装和融入了大量的技术沉淀后优化的内部框架，前面讲到java比php更有层次感，本篇文章将体现得更加明显。</p>
 <h2 id="结构介绍"><a href="#结构介绍" class="headerlink" title="结构介绍"></a>结构介绍</h2><p><img src="/img/mulu_show.png" alt="spring"><br>以上目录机构为分层之后的企业级内部架构，各个层级间的关系以及功能作用都是相辅相成的关系</p>
 <p><code>api</code>：指向外部接口的接口层，主要功能在于为外部业务线提供功能接口，同时里面包含两大数据DTO，Request和Response，分别可以指定接口的入参和返回值。<br><code>dubbo</code>：包含展示层Spring MVC、持久层Spring JDBC、逻辑处理以及业务事务管理。<br><code>-biz</code>：逻辑处理层<br><code>-common</code>：公共bean存放的地方，通常含有枚举bean以及公共处理方法等。<br><code>-dao</code>：数据处理层，里面常常包含JDBC、Mybaitis等数据库处理。里面会与数据表对应生成对应的mapper处理器和数据返回DO数据包，mapper里面含有数据表基本的数据增删改查处理方法供使用。<br><img src="/img/data-config.png" alt="spring"><br><code>-intergrate</code>：外部接口接入，在接入外部项目的时候需在以下pom.xml中和外部dubbo对应的pom.xml中配置依赖。<br><code>-service</code>:服务处理层,本架构中里面包含有处理回调（callback）、service和定时任务（task）。<br><code>-test</code>：单元测试层。<br><code>-web</code>：项目配置层，里面包含applicationContext、servlet、dubbo-comsumer、dubbo-provider、data-source、mybatis-config等这些配置。</p>
-<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><h3 id="mapper的生成"><a href="#mapper的生成" class="headerlink" title="mapper的生成"></a>mapper的生成</h3><p>数据表新建之后，必然要在mapper中生成对应的dao层处理器，数据库的操作体系是基于mybatis来的，生成后的mapper里面含有基础的数据库操作方法供使用，如若复杂的sql查询需自行添加mapper方法以及对应的mapper中xml配置的sql语句即可；类似于php中的Model，基于ORM提供了大量的数据库操作方法供使用。<br>生成地址：<br>java-xxx-agent-dubbo/xxx-agent-dubbo-dao/src/test/java/com/xxx/agent/generator/Generator.java</p>
+<h2 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h2><h3 id="mapper的生成"><a href="#mapper的生成" class="headerlink" title="mapper的生成"></a>mapper的生成</h3><p>数据表新建之后，必然要在mapper中生成对应的dao层处理器，数据库的操作体系是基于mybatis来的，生成后的mapper里面含有基础的数据库操作方法供使用，如若复杂的sql查询需自行添加mapper方法以及对应的mapper中xml配置的sql语句即可；类似于php中的Model，基于ORM提供了大量的数据库操作方法供使用。</p>
+<p>mapper配置地址：<br>java-xxx-agent-dubbo-dao/src/test/resources/generator/generatorConfig.xml<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"> &lt;table tableName=<span class="string">"bja_activity_chance"</span> domainObjectName=<span class="string">"ActivityChance"</span>&gt;</span><br><span class="line">    &lt;!--生成createGuid时加此属性--&gt;</span><br><span class="line">    &lt;property name=<span class="string">"generateGuid"</span> value=<span class="string">"false"</span>/&gt;</span><br><span class="line">&lt;/table&gt;</span><br></pre></td></tr></table></figure></p>
+<p>生成地址：<br>java-xxx-agent-dubbo/xxx-agent-dubbo-dao/src/test/java/com/xxx/agent/generator/Generator.java</p>
+<p>先配置参数，再执行生成。</p>
 <h3 id="枚举编写"><a href="#枚举编写" class="headerlink" title="枚举编写"></a>枚举编写</h3><p>如若业务中需要涉及到枚举的地方，需要在common中添加对应的枚举。</p>
 <h3 id="编写biz"><a href="#编写biz" class="headerlink" title="编写biz"></a>编写biz</h3><p>biz层是比较重要的一个层级，里面包含逻辑及业务处理，它的调用方通常是dao层和intergrate层，它的被调方通常是service层。</p>
 <h3 id="编写intergrate"><a href="#编写intergrate" class="headerlink" title="编写intergrate"></a>编写intergrate</h3><p>如若有外部项目接口接入才需要涉及到这个层，上一篇博客已有详细说明。</p>
@@ -626,7 +629,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">14</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
