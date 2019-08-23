@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="docker," />
+  <meta name="keywords" content="python," />
 
 
 
@@ -79,21 +79,18 @@
 
 
 
-<meta name="description" content="今天是公司2018年的年会，地点定在渝中区大礼堂，下午1点30开始，上午几乎所有的小伙伴都按捺不住自己内心澎湃的心一心准备参加公司的年会，不知道是不是做程序员做久了，还是说早已习惯了公司的”套路”，不觉得年会有什么新鲜感和吸引我的地方，当然说句实话，年会对我吸引最大的肯定是抽奖环节，据说今年的终极大奖是现金10万；趁着">
-<meta name="keywords" content="docker">
+<meta name="description" content="高级特性切片取一个list或者tuple的部分元素是非常常见的操作，获取前N个元素，也就是索引为0-(N-1)的元素，可以用循环12345678&amp;gt;&amp;gt;&amp;gt; L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;,">
+<meta name="keywords" content="python">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Docker的基本操作">
-<meta property="og:url" content="http://xiexiangnow.github.io/2018/01/31/Docker的基本操作/index.html">
+<meta property="og:title" content="python学习-part02(切片、迭代)">
+<meta property="og:url" content="http://xiexiangnow.github.io/2019/08/01/python学习-part02-切片、迭代/index.html">
 <meta property="og:site_name" content="翔奕时代">
-<meta property="og:description" content="今天是公司2018年的年会，地点定在渝中区大礼堂，下午1点30开始，上午几乎所有的小伙伴都按捺不住自己内心澎湃的心一心准备参加公司的年会，不知道是不是做程序员做久了，还是说早已习惯了公司的”套路”，不觉得年会有什么新鲜感和吸引我的地方，当然说句实话，年会对我吸引最大的肯定是抽奖环节，据说今年的终极大奖是现金10万；趁着这么还有点时间，更新下自己的博客吧使用Docker还是蛮久的了，但对于我来时，">
+<meta property="og:description" content="高级特性切片取一个list或者tuple的部分元素是非常常见的操作，获取前N个元素，也就是索引为0-(N-1)的元素，可以用循环12345678&amp;gt;&amp;gt;&amp;gt; L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;, &apos;Jack&apos;]&amp;gt;&amp;gt;&amp;gt; r = []&amp;gt;&amp;gt;&amp;gt; n = 3&amp;gt;&amp;gt;&amp;gt; for i in range(n)">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://oymkn4m7b.bkt.clouddn.com/WX20180131-095807@2x.png">
-<meta property="og:image" content="http://oymkn4m7b.bkt.clouddn.com/WX20180131-102524@2x.png">
-<meta property="og:updated_time" content="2018-01-31T02:52:52.343Z">
+<meta property="og:updated_time" content="2019-08-01T02:41:29.292Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Docker的基本操作">
-<meta name="twitter:description" content="今天是公司2018年的年会，地点定在渝中区大礼堂，下午1点30开始，上午几乎所有的小伙伴都按捺不住自己内心澎湃的心一心准备参加公司的年会，不知道是不是做程序员做久了，还是说早已习惯了公司的”套路”，不觉得年会有什么新鲜感和吸引我的地方，当然说句实话，年会对我吸引最大的肯定是抽奖环节，据说今年的终极大奖是现金10万；趁着这么还有点时间，更新下自己的博客吧使用Docker还是蛮久的了，但对于我来时，">
-<meta name="twitter:image" content="http://oymkn4m7b.bkt.clouddn.com/WX20180131-095807@2x.png">
+<meta name="twitter:title" content="python学习-part02(切片、迭代)">
+<meta name="twitter:description" content="高级特性切片取一个list或者tuple的部分元素是非常常见的操作，获取前N个元素，也就是索引为0-(N-1)的元素，可以用循环12345678&amp;gt;&amp;gt;&amp;gt; L = [&apos;Michael&apos;, &apos;Sarah&apos;, &apos;Tracy&apos;, &apos;Bob&apos;, &apos;Jack&apos;]&amp;gt;&amp;gt;&amp;gt; r = []&amp;gt;&amp;gt;&amp;gt; n = 3&amp;gt;&amp;gt;&amp;gt; for i in range(n)">
 
 
 
@@ -123,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://xiexiangnow.github.io/2018/01/31/Docker的基本操作/"/>
+  <link rel="canonical" href="http://xiexiangnow.github.io/2019/08/01/python学习-part02-切片、迭代/"/>
 
 
 
 
 
-  <title>Docker的基本操作 | 翔奕时代</title>
+  <title>python学习-part02(切片、迭代) | 翔奕时代</title>
   
 
 
@@ -314,7 +311,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2018/01/31/Docker的基本操作/">
+    <link itemprop="mainEntityOfPage" href="http://xiexiangnow.github.io/2019/08/01/python学习-part02-切片、迭代/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="谢翔">
@@ -331,7 +328,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Docker的基本操作</h1>
+          <h1 class="post-title" itemprop="name headline">python学习-part02(切片、迭代)</h1>
         
 
         <div class="post-meta">
@@ -343,8 +340,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-31T09:44:16+08:00">
-                2018-01-31
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-01T09:35:57+08:00">
+                2019-08-01
               </time>
             
 
@@ -366,8 +363,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/docker/" itemprop="url" rel="index">
-                    <span itemprop="name">docker</span>
+                  <a href="/categories/python/" itemprop="url" rel="index">
+                    <span itemprop="name">python</span>
                   </a>
                 </span>
 
@@ -408,33 +405,10 @@
       
 
       
-        <blockquote>
-<p>今天是公司2018年的年会，地点定在渝中区大礼堂，下午1点30开始，上午几乎所有的小伙伴都按捺不住自己内心澎湃的心一心准备参加公司的年会，不知道是不是做程序员做久了，还是说早已习惯了公司的”套路”，不觉得年会有什么新鲜感和吸引我的地方，当然说句实话，年会对我吸引最大的肯定是抽奖环节，据说今年的终极大奖是现金10万；趁着这么还有点时间，更新下自己的博客吧<br>使用Docker还是蛮久的了，但对于我来时，基本都是针对于开发搭建环境使用，所以也就只会一些基本的使用，要想看深入讲解的，请绕道咯。</p>
-</blockquote>
-<h2 id="Docker简介"><a href="#Docker简介" class="headerlink" title="Docker简介"></a>Docker简介</h2><h4 id="Docker"><a href="#Docker" class="headerlink" title="Docker"></a>Docker</h4><p>Docker是一个开源平台，用于自动化部署应用，以通过快捷的途径在称之为容器的轻量级软件层下打包、发布和运行这些应用。它使得应用平台独立，因为它扮演了Linux上一个额外的操作系统级虚拟化的自动化抽象层。它通过其组件cgroups和命名空间利用Linux内核的资源分离特性，达到避免虚拟机开销的目的。它使得用于部署和扩展web应用、数据库和后端服务的大规模构建组件无需依赖于特定的堆栈或供应者。</p>
-<h4 id="容器"><a href="#容器" class="headerlink" title="容器"></a>容器</h4><p>所谓的容器，就是那些创建自Docker镜像的软件层，它包含了独立的Linux文件系统和开箱即用的应用程序。如果我们有一个在机器中运行着的Docker容器，并且想要备份这些容器以便今后使用，或者想要迁移这些容器，那么，本教程将帮助你掌握在Linux操作系统中备份、恢复和迁移Docker容器的方法</p>
-<h2 id="使用及介绍"><a href="#使用及介绍" class="headerlink" title="使用及介绍"></a>使用及介绍</h2><h4 id="操作命令"><a href="#操作命令" class="headerlink" title="操作命令"></a>操作命令</h4><p>显示docker系统信息<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker info</span><br></pre></td></tr></table></figure></p>
-<p>镜像搜索<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker search  php</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://oymkn4m7b.bkt.clouddn.com/WX20180131-095807@2x.png" alt="image"><br>获取镜像<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull richarvey/nginx-php-fpm (需要哪个就pull哪个)</span><br></pre></td></tr></table></figure></p>
-<p>导入本地镜像<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker load &gt; ~/Users/xiexiang/Downloads/[镜像名]</span><br></pre></td></tr></table></figure></p>
-<p>查看镜像<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
-<p>显示镜像的历史<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker history</span><br></pre></td></tr></table></figure></p>
-<p>删除镜像<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rmi -f richarvey/nginx-php-fpm   (带f据说不会残留垃圾)</span><br></pre></td></tr></table></figure></p>
-<p>创建容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d -p <span class="number">80</span>:<span class="number">80</span> --name php-zzgg-un -v /Users/xiexiang/myproject/bajieke:/<span class="keyword">var</span>/www/html registry.alauda.cn/neucloud/nginx-php-fpm:latest</span><br></pre></td></tr></table></figure></p>
-<p>查看容器(全部)<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps -a</span><br></pre></td></tr></table></figure></p>
-<p><img src="http://oymkn4m7b.bkt.clouddn.com/WX20180131-102524@2x.png" alt="images"><br>查看已运行容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker ps</span><br></pre></td></tr></table></figure></p>
-<p>删除容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker rm -f [容器id]</span><br></pre></td></tr></table></figure></p>
-<p>进入到容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker exec -it [容器名] bash</span><br></pre></td></tr></table></figure></p>
-<p>启动容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker start [容器名]</span><br></pre></td></tr></table></figure></p>
-<p>停止容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop [容器名]</span><br></pre></td></tr></table></figure></p>
-<p>重启容器<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker restart [容器名]</span><br></pre></td></tr></table></figure></p>
-<h4 id="容器的导出导入功能"><a href="#容器的导出导入功能" class="headerlink" title="容器的导出导入功能"></a>容器的导出导入功能</h4><p>1、停止容器(也可以不停止，只要下一步commit成功即可)<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker stop [容器名]</span><br></pre></td></tr></table></figure></p>
-<p>2、将容器commit为镜像<br> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">docker commit ec1f968cc0d0 php-zzgg-un   (容器id  自定义镜像名)</span><br><span class="line">```` </span><br><span class="line">查看生成的镜像</span><br><span class="line">````php</span><br><span class="line">docker images</span><br></pre></td></tr></table></figure></p>
-<p>3、save镜像为tar文件<br> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker save -o /Users/xiexiang/Downloads/php-zzgg-un.tar  php-zzgg-un</span><br></pre></td></tr></table></figure></p>
-<p>4、将tar文件scp到 目标docker主机<br> <figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp php-zzgg-un.tar root@<span class="number">10.45</span><span class="number">.7</span><span class="number">.197</span>:/docker</span><br></pre></td></tr></table></figure></p>
-<p>5、导入本地镜像</p>
-<pre><code class="php">docker load /Users/xiexiang/Downloads/php-zzgg-un.tar
-</code></pre>
+        <h2 id="高级特性"><a href="#高级特性" class="headerlink" title="高级特性"></a>高级特性</h2><h4 id="切片"><a href="#切片" class="headerlink" title="切片"></a>切片</h4><p>取一个list或者tuple的部分元素是非常常见的操作，获取前N个元素，也就是索引为<code>0-(N-1)</code>的元素，可以用循环<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L = [<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>, <span class="string">'Bob'</span>, <span class="string">'Jack'</span>]</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r = []</span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>n = <span class="number">3</span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">for</span> i <span class="keyword">in</span> range(n):</span><br><span class="line"><span class="meta">... </span>    r.append(L[i])</span><br><span class="line"><span class="meta">... </span></span><br><span class="line"><span class="meta">&gt;&gt;&gt; </span>r</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure></p>
+<p>对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作。</p>
+<p>对应上面的问题，取前3个元素，用一行代码就可以完成切片</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span>L[<span class="number">0</span>:<span class="number">3</span>]</span><br><span class="line">[<span class="string">'Michael'</span>, <span class="string">'Sarah'</span>, <span class="string">'Tracy'</span>]</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -492,7 +466,7 @@
   </li>
   <li class="post-copyright-link">
     <strong>本文链接：</strong>
-    <a href="http://xiexiangnow.github.io/2018/01/31/Docker的基本操作/" title="Docker的基本操作">http://xiexiangnow.github.io/2018/01/31/Docker的基本操作/</a>
+    <a href="http://xiexiangnow.github.io/2019/08/01/python学习-part02-切片、迭代/" title="python学习-part02(切片、迭代)">http://xiexiangnow.github.io/2019/08/01/python学习-part02-切片、迭代/</a>
   </li>
   <li class="post-copyright-license">
     <strong>版权声明： </strong>
@@ -516,7 +490,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/docker/" rel="tag"># docker</a>
+            <a href="/tags/python/" rel="tag"># python</a>
           
         </div>
       
@@ -529,8 +503,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/01/25/hexo搭建的博客如何给文章分类（NEXT主题）/" rel="next" title="hexo搭建的博客如何给文章分类（NEXT主题）">
-                <i class="fa fa-chevron-left"></i> hexo搭建的博客如何给文章分类（NEXT主题）
+              <a href="/2019/07/25/python学习-part01/" rel="next" title="python学习-part01(数据类型)">
+                <i class="fa fa-chevron-left"></i> python学习-part01(数据类型)
               </a>
             
           </div>
@@ -538,10 +512,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/02/02/PHP给源代码加密的几种方法/" rel="prev" title="PHP给源代码加密的几种方法">
-                PHP给源代码加密的几种方法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -1019,7 +989,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Docker简介"><span class="nav-number">1.</span> <span class="nav-text">Docker简介</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Docker"><span class="nav-number">1.0.1.</span> <span class="nav-text">Docker</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器"><span class="nav-number">1.0.2.</span> <span class="nav-text">容器</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用及介绍"><span class="nav-number">2.</span> <span class="nav-text">使用及介绍</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#操作命令"><span class="nav-number">2.0.1.</span> <span class="nav-text">操作命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#容器的导出导入功能"><span class="nav-number">2.0.2.</span> <span class="nav-text">容器的导出导入功能</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#高级特性"><span class="nav-number">1.</span> <span class="nav-text">高级特性</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#切片"><span class="nav-number">1.0.1.</span> <span class="nav-text">切片</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
