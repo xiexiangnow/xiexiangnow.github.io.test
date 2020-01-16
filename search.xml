@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Node.js快速安装指南]]></title>
+    <url>%2F2020%2F01%2F16%2FNode-js%E5%BF%AB%E9%80%9F%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97%2F</url>
+    <content type="text"><![CDATA[Linux上安装Node.jsNode 官网（http://nodejs.cn/download/）已经把 linux 下载版本更改为已编译好的版本了，我们可以直接下载解压后使用：12345# wget https://nodejs.org/dist/v10.9.0/node-v10.9.0-linux-x64.tar.xz // 下载# tar xf node-v10.9.0-linux-x64.tar.xz // 解压# cd node-v10.9.0-linux-x64/ // 进入解压目录# ./bin/node -v // 执行node命令 查看版本v10.9.0 解压文件的 bin 目录底下包含了 node、npm 等命令，我们可以使用 ln 命令来设置软连接：12ln -s /usr/software/nodejs/bin/npm /usr/local/bin/ ln -s /usr/software/nodejs/bin/node /usr/local/bin/ Ubuntu 源码安装Node.js以下部分我们将介绍在 Ubuntu Linux 下使用源码安装 Node.js 。 其他的 Linux 系统，如 Centos 等类似如下安装步骤。在 Github 上获取 Node.js 源码：12$ sudo git clone https://github.com/nodejs/node.gitCloning into &apos;node&apos;... 修改目录权限：1$ sudo chmod -R 755 node 使用 ./configure 创建编译文件，并按照：1234$ cd node$ sudo ./configure$ sudo make$ sudo make install 查看 node 版本：12$ node --versionv0.10.25 Ubuntu apt-get命令安装命令格式如下:12sudo apt-get install nodejssudo apt-get install npm Mac OS 上安装在官方下载网站下载 pkg 安装包，直接点击安装即可。使用 brew 命令来安装： 1brew install node]]></content>
+      <categories>
+        <category>nodejs</category>
+      </categories>
+      <tags>
+        <tag>nodejs</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[python学习-part02(切片、迭代)]]></title>
     <url>%2F2019%2F08%2F01%2Fpython%E5%AD%A6%E4%B9%A0-part02-%E5%88%87%E7%89%87%E3%80%81%E8%BF%AD%E4%BB%A3%2F</url>
     <content type="text"><![CDATA[高级特性切片取一个list或者tuple的部分元素是非常常见的操作，获取前N个元素，也就是索引为0-(N-1)的元素，可以用循环12345678&gt;&gt;&gt; L = ['Michael', 'Sarah', 'Tracy', 'Bob', 'Jack']&gt;&gt;&gt; r = []&gt;&gt;&gt; n = 3&gt;&gt;&gt; for i in range(n):... r.append(L[i])... &gt;&gt;&gt; r['Michael', 'Sarah', 'Tracy'] 对这种经常取指定索引范围的操作，用循环十分繁琐，因此，Python提供了切片（Slice）操作符，能大大简化这种操作。 对应上面的问题，取前3个元素，用一行代码就可以完成切片 12&gt;&gt;&gt; L[0:3]['Michael', 'Sarah', 'Tracy']]]></content>
