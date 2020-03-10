@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>docker占用磁盘空间清理</title>
+    <url>/2020/03/10/docker%E5%8D%A0%E7%94%A8%E7%A3%81%E7%9B%98%E7%A9%BA%E9%97%B4%E6%B8%85%E7%90%86/</url>
+    <content><![CDATA[<p>自从接触并使用docker就明显的发现一个问题，在磁盘空间中有一个文件<code>docker.raw</code>一直在持续的增大，在Mac路径<code>/Users/xiexiang/Library/Containers</code>下也能看到一个名叫<code>com.docker.docker</code>的文件非常的大，以前一直以为是因为下载了太多的镜像或者run了太多的容器造成的，在使用过程中也尝试清理过镜像和容器，但是docker.raw文件不会有一点点的变小。</p>
+<p><code>当然看文章前首先声明：对于磁盘空间比较大的Mac用户不用在意空间大小或者Windows用户，可以忽略本篇文章。</code></p>
+<h2 id="Docker-System命令"><a href="#Docker-System命令" class="headerlink" title="Docker System命令"></a>Docker System命令</h2><p>它是用于管理磁盘空间</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker system df</span><br></pre></td></tr></table></figure>
+<p>类似于linux上的df命令，用于查看Docker的磁盘使用情况：<br><img src="/img/docker-ql-01.png" alt="docker"><br>可知，Docker镜像占用了808M磁盘，Docker容器占用了436KB磁盘，Docker数据卷占用了17KB磁盘。因为之前盲目清理过docker，但是并没有改变docker的占用空间。</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker system prune -a</span><br></pre></td></tr></table></figure>
+<p>docker system prune命令可以用于清理磁盘，删除关闭的容器、无用的数据卷和网络，以及dangling镜像（即无tag的镜像）。docker system prune -a命令清理得更加彻底，可以将没有容器使用Docker镜像都删掉。注意，这两个命令会把你暂时关闭的容器，以及暂时没有用到的Docker镜像都删掉了……所以使用之前一定要想清楚吶。</p>
+<p>再次执行<code>docker system df</code>你会发现上图中的数据会变小很多。</p>
+<p>执行后，如果是Mac用户，你可以尝试看下你的总的磁盘空间是否有下降，同时在 /Library/Containers下查看com.docker.docker的大小，正常情况下会小很多，这样会节省出很多的磁盘空间出来。</p>
+<h2 id="手动清理Docker镜像-容器-数据卷"><a href="#手动清理Docker镜像-容器-数据卷" class="headerlink" title="手动清理Docker镜像/容器/数据卷"></a>手动清理Docker镜像/容器/数据卷</h2><p>对于旧版的Docker（版本1.13之前），是没有Docker System命令的，因此需要进行手动清理。这里给出几个常用的命令：</p>
+<p>删除所有关闭的容器：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker ps -a | grep Exit | cut -d &apos; &apos; -f 1 | xargs docker rm</span><br></pre></td></tr></table></figure></p>
+<p>删除所有dangling镜像（即无tag的镜像）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker rmi $(docker images | grep &quot;^&lt;none&gt;&quot; | awk &quot;&#123;print $3&#125;&quot;)</span><br></pre></td></tr></table></figure></p>
+<p>删除所有dangling数据卷（即无用的Volume）：<br><figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">docker volume rm $(docker volume ls -qf dangling=true)</span><br></pre></td></tr></table></figure></p>
+]]></content>
+      <categories>
+        <category>docker</category>
+      </categories>
+      <tags>
+        <tag>docker</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Jquery常用操作</title>
     <url>/2020/01/17/Jquery%E5%B8%B8%E7%94%A8%E6%93%8D%E4%BD%9C/</url>
     <content><![CDATA[<p>由于自身是后端开发，长期做的项目都基本在纯后端，对于js熟悉程度一直都是自己过不去的坎，近段时间接触了一个较为复杂的页面交互，恶补了下jquery的一些常用操作，在此整理一下，以下内容只属于部分记录，重点在于记录数据的处理版块。</p>
