@@ -404,10 +404,11 @@
       
         
           
-          自从接触并使用docker就明显的发现一个问题，在磁盘空间中有一个文件docker.raw一直在持续的增大，在Mac路径/Users/xiexiang/Library/Containers下也能看到一个名叫com.docker.docker的文件非常的大，以前一直以为是因为下载了太多的镜像或者run了太多的容器造成的，在使用过程中也尝试清理过镜像和容器，但是docker.raw文件不会有一点点的变小。
+          
+自从接触并使用docker就明显的发现一个问题，在磁盘空间中有一个文件docker.raw一直在持续的增大，在Mac路径/Users/xiexiang/Library/Containers下也能看到一个名叫com.docker.docker的文件非常的大，以前一直以为是因为下载了太多的镜像或者run了太多的容器造成的，在使用过程中也尝试清理过镜像和容器，但是docker.raw文件不会有一点点的变小。
+
+以下方法可以解决Docker磁盘占用情况，可以根据自身情况测试，本人亲测可用。
 当然看文章前首先声明：对于磁盘空间比较大的Mac用户不用在意空间大小或者Windows用户，可以忽略本篇文章。
-Docker System命令它是用于管理磁盘空间
-1docker system 
           ...
           <!--noindex-->
           <div class="post-button text-center">
